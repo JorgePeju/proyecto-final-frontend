@@ -1,13 +1,18 @@
+import { MapImage } from "./components/MapImage"
 
 
 
 function App() {
- 
+
 
   return (
+
     <>
-   Holiwi
+
+      <MapImage />
+
     </>
+    
   )
 }
 
