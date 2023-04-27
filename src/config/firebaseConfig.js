@@ -1,10 +1,10 @@
 export const firebaseConfig = {
 
     apiKey: import.meta.env.VITE_API_KEY_FIREBASE,
-    authDomain: "proyecto-final-backend-f0580.firebaseapp.com",
-    projectId: "proyecto-final-backend-f0580",
-    storageBucket: "proyecto-final-backend-f0580.appspot.com",
-    messagingSenderId: "665182018458",
+    authDomain: "proyecto-final-front-4490e.firebaseapp.com",
+    projectId: "proyecto-final-front-4490e",
+    storageBucket: "proyecto-final-front-4490e.appspot.com",
+    messagingSenderId: "504336006531",
     appId: import.meta.env.VITE_APPID
   
   };
