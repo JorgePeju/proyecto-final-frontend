@@ -1,18 +1,17 @@
-import { MapContainer, Marker } from 'react-leaflet';
-import { MapImage } from '../components/MapImage';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import { useState } from 'react';
+import { MapContainer, Marker } from "react-leaflet";
+import { MapImage } from "../components/MapImage";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import {useMarker} from "../hooks/useMarker";
+import { Markers } from "./Markers";
 
 export const MapContainerComp = () => {
-  const [markerCoordinates, setMarkerCoordinates] = useState([]);
+
+  const [markerData, addMarker] = useMarker();
 
   const handleCoordinatesChange = (coordinates) => {
-    console.log(coordinates)
-    setMarkerCoordinates([...markerCoordinates, coordinates]);
+    addMarker(coordinates);
   };
-   
-
 
   const bounds = [[0, 0], [6542 * 0.1, 7852 * 0.1]];
   const crs = L.CRS.Simple;
@@ -21,13 +20,9 @@ export const MapContainerComp = () => {
   const maxZoom = 4;
 
   return (
-
-    <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false}>
-
+    <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
       <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
-      {markerCoordinates.map((coordinates, index) => (
-        <Marker key={index} position={coordinates} />
-      ))}
+      <Markers markerData={markerData}  />
     </MapContainer>
   );
 };
