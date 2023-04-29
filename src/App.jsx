@@ -1,6 +1,4 @@
-import {MapContainer} from 'react-leaflet'
-import { MapImage} from "./components/MapImage"
-import { HomePage } from './pages/HomePage'
+import { HomePage } from './pages'
 
 
 function App() {

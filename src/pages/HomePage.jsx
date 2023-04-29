@@ -1,4 +1,4 @@
-import { MapContainerComp } from "../components/MapContainerComp"
+import { MapContainerComp} from "../components"
 
 
 
