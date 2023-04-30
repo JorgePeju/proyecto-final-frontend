@@ -2,8 +2,9 @@ import { useState } from "react";
 import L from "leaflet";
 
 export const useMarker = () => {
+  
   const [markerData, setMarkerData] = useState([]);
-
+ 
   const addMarker = (coordinates) => {
 
     const marker = {
@@ -18,7 +19,7 @@ export const useMarker = () => {
       }),
 
     };
-
+        console.log(coordinates)
     setMarkerData((prevMarkerData) => [...prevMarkerData, marker]);
     
   };

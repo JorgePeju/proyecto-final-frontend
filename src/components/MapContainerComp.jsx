@@ -8,7 +8,7 @@ import { Markers } from "./Markers";
 export const MapContainerComp = () => {
 
   const [markerData, addMarker] = useMarker();
-
+  console.log(markerData)
   const handleCoordinatesChange = (coordinates) => {
     addMarker(coordinates);
   };

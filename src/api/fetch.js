@@ -1,29 +1,44 @@
-export const consultation = async (url) => {
 
-    try {
-  
-      const request = await fetch(url, {
-  
-        method: 'get',
+
+
+export const consultation = async (url, method, body = {}) => {
+  let options = {};
+
+  const data = { ...body };
+
+  try {
+
+    if (method === "POST" || method === "PUT") {
+      
+      options = {
+        method: method,
         mode: 'cors',
-        cache: 'force-cache'
-  
-      });
-  
-      if (request.ok){
-  
-        return request.json();
-  
-      } else {
-  
-        throw new Error('Error al conectar con la api');
-  
-      }
-          
-    } catch (error) {
-  
-      console.log(error);
-      throw new Error('Error al conectar con la API');
-  
+        cache: 'force-cache',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
     }
-  };
+
+    if (method === "DELETE") {
+      options = { method };
+    }
+
+    const request = await fetch(url, options);
+
+    if (request){
+
+      return request.json();
+
+    } else {
+
+      throw new Error('Error al conectar con la api');
+      
+    }
+
+  } catch (error) {
+    throw new Error(`Error al conectar con la API: ${error.message}`);
+  }
+};
+
