@@ -1,16 +1,25 @@
-import { MapContainer, Marker } from "react-leaflet";
+import { MapContainer} from "react-leaflet";
 import { MapImage } from "../components/MapImage";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import {useMarker} from "../hooks/useMarker";
+import { useMarker } from "../hooks/useMarker";
 import { Markers } from "./Markers";
+import { UserContext } from '../auth/context/UserContext'
+import { useContext } from "react";
+import { useFetchMarkers } from "../hooks/useFetchmarker";
 
 export const MapContainerComp = () => {
 
-  const [markerData, addMarker] = useMarker();
-  console.log(markerData)
+  const { user } = useContext(UserContext);
+
+  const {addMarker} = useMarker(user?._id); 
+
+  const request = useFetchMarkers('http://localhost:3000/api/v1/entries');
+  const marker = request.marker
+  
   const handleCoordinatesChange = (coordinates) => {
-    addMarker(coordinates);
+    if (!user?._id) return
+    addMarker(coordinates); 
   };
 
   const bounds = [[0, 0], [6542 * 0.1, 7852 * 0.1]];
@@ -22,7 +31,9 @@ export const MapContainerComp = () => {
   return (
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
       <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
-      <Markers markerData={markerData}  />
+  
+        <Markers marker={marker}/>
+      
     </MapContainer>
-  );
-};
+ 
+  )}
