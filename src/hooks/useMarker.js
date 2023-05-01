@@ -29,7 +29,7 @@ export const useMarker = (userId) => {
     console.log(response)
   };
 
-  return addMarker;
+  return [addMarker];
 };
 
 
