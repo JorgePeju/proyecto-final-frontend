@@ -1,34 +1,34 @@
 import L from "leaflet";
 import { useState } from "react";
 
-export const useMarker = (userId) => { 
-
-  const [markerData, setMarkerData] = useState([])
+export const useMarker = (userId, openModal) => {
+  const [markerData, setMarkerData] = useState([]);
 
   const addMarker = async (coordinates) => {
-
     const marker = {
-      title: '',
-      description: '',
+      title: "",
+      description: "",
       position: coordinates,
       user: userId,
-      status: false, 
-      iconType: '',
+      status: false,
+      iconType: "",
       icon: L.icon({
         iconSize: [40, 61],
         iconAnchor: [20, 25],
         popupAnchor: [2, -40],
-        iconUrl: 'https://objmap.zeldamods.org/icons/mapicon_dungeon.svg', 
+        iconUrl: "https://objmap.zeldamods.org/icons/mapicon_dungeon.svg",
       }),
-      
     };
 
-    setMarkerData(prevMarkers => [...prevMarkers, marker]);
-
+    setMarkerData((prevMarkers) => [...prevMarkers, marker]);
+    if (openModal) {
+      openModal(marker);
+    }
   };
 
-  return [markerData, addMarker];
+  return [markerData,setMarkerData, addMarker];
 };
+
 
 //* URL TORRE
 // https://objmap.zeldamods.org/icons/mapicon_tower.svg

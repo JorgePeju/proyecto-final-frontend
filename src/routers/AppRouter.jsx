@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage } from '../pages'
+import { HomePage, AdminPage } from '../pages'
 import { AuthRouter } from './AuthRouter'
 import { UserProvider } from '../auth/context/UserProvider'
-import {MarkerForm} from '../components'
+
 export const AppRouter = () => {
 
     return (
@@ -11,7 +11,7 @@ export const AppRouter = () => {
             <Routes>
 
                 <Route path='/*' element={<HomePage />} />
-                {/* <Route path='/index/*' element={<MarkerForm />} /> */}
+                <Route path='/admin/*' element={<AdminPage/>} />
                 <Route path='/auth/*' element={<AuthRouter />} />
 
             </Routes>

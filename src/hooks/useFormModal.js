@@ -41,8 +41,6 @@ export const useFormModal = () => {
             setFormulario({ title: '', description: '', iconType: '' });
             navigateTo('/')
         }
-
-
     };
 
     const openModal = (marker) => {
@@ -54,10 +52,17 @@ export const useFormModal = () => {
         });
     };
 
+    const closeModal = () => {
+        setShowModal(false);
+        setFormulario({ title: '', description: '', iconType: '' });
+        navigateTo('/')
+      };
+
     return {
         showModal,
         handleChange,
         handleSubmit,
-        openModal
+        openModal,
+        closeModal
     };
 };
