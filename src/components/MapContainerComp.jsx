@@ -2,11 +2,10 @@ import { MapContainer} from "react-leaflet";
 import { MapImage } from "../components/MapImage";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useMarker} from "../hooks/useMarker";
+import { useMarker, useFetchMarkers} from "../hooks";
 import { Markers } from "./Markers";
 import { UserContext } from '../auth/context/UserContext'
 import { useContext } from "react";
-import { useFetchMarkers } from "../hooks/useFetchmarker";
 
 export const MapContainerComp = () => {
 
@@ -18,7 +17,7 @@ export const MapContainerComp = () => {
   const marker = request.marker
 
   const handleCoordinatesChange = (coordinates) => {
-    if (!user?._id) return
+    // if (!user?._id) return
     addMarker(coordinates); 
   };
 

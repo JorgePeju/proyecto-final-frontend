@@ -27,7 +27,7 @@ export const useMarker = (userId) => {
     setMarkerData(prevMarkers => [...prevMarkers, marker]);
 
   };
-  
+ 
   return [markerData, addMarker];
 };
 

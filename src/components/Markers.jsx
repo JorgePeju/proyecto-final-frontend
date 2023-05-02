@@ -4,7 +4,7 @@ import { UserContext } from '../auth/context/UserContext'
 import { useContext } from "react";
 
 export const Markers = ({ marker, markerData }) => {
-  
+
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
 
@@ -32,7 +32,8 @@ export const Markers = ({ marker, markerData }) => {
       ))}
 
       {markerData.map((marker, index) => (
-        <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} />
+        <Marker key={index} position={marker.position} icon={marker.icon} />
+        
       ))}
     </>
   );
