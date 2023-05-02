@@ -16,6 +16,7 @@ export const MapContainerComp = () => {
   const request = useFetchMarkers('http://localhost:3000/api/v1/entries');
   const markerMongo = request.marker
 
+
   const bounds = [[0, 0], [6542 * 0.1, 7852 * 0.1]];
   const crs = L.CRS.Simple;
   const center = [325, 350];
