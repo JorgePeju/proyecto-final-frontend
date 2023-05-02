@@ -16,7 +16,7 @@ export const MapContainerComp = () => {
   const marker = request.marker
 
   const handleCoordinatesChange = (coordinates) => {
-    if (!user?._id || showModal === true) return
+    if ( showModal === true) return
     addMarker(coordinates);
   };
 

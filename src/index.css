@@ -24,3 +24,7 @@
 .leaflet-grab {
     cursor: move;
 }
+
+.z-1k1 {
+    z-index:1100
+}
