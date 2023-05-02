@@ -27,11 +27,12 @@ export const MapContainerComp = () => {
     addMarker(coordinates);
   };
     console.log(marker)
-  // useEffect(() => {
-  //   if (marker) {
-  //     openModal(marker)
-  //   }
-  // }, [marker);
+
+   useEffect(() => {
+  if (Array.isArray(marker) && !showModal) {
+    openModal(marker);
+  }
+}, [marker, showModal, openModal]);
 
   return (
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >

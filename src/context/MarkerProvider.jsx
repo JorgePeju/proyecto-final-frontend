@@ -3,7 +3,7 @@ import { MarkerContext } from './MarkerContext';
 
 export const MarkerProvider = ({ children }) => {
 
-    const [marker, setMarker] = useState([]);
+    const [marker, setMarker] = useState();
     
     return (
 

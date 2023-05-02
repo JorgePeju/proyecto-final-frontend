@@ -1,9 +1,17 @@
+import { useContext } from 'react';
+import { MarkerContext } from '../context';
+
 export const MarkerForm = ({ markerData, showModal, handleChange, handleSubmit, closeModal }) => {
 
+  const { setMarker } = useContext(MarkerContext);
+
+  const handleCloseModal = () => {
+    closeModal();
+    setMarker(null);
+  };
+
   return (
-    <div className={`${
-      showModal ? "fixed z-1k1 inset-0 overflow-y-auto" : "hidden"
-    }`}
+    <div className={`${showModal ? "fixed z-1k1 inset-0 overflow-y-auto" : "hidden"}`}
     >
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center">
         <div
@@ -22,7 +30,7 @@ export const MarkerForm = ({ markerData, showModal, handleChange, handleSubmit, 
           <form  onSubmit={(e) => {handleSubmit(e, markerData);}}>
             <div className="mb-4">
             <div className="flex justify-center items-center">
-            <button type="button" onClick={closeModal} className="px-4 my-2 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            <button type="button" onClick={handleCloseModal} className="px-4 my-2 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >Cerrar
             </button>
             </div>

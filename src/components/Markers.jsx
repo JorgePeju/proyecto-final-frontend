@@ -7,7 +7,6 @@ export const Markers = ({ markerMongo, markerData }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
-
   const filteredMarkers = markerMongo.filter((marker) => {
     if (isAdmin) {
       return true;
@@ -31,7 +30,7 @@ export const Markers = ({ markerMongo, markerData }) => {
         </Marker>
       ))}
 
-      {markerData.map((marker, index) => (
+      {Array.isArray(markerData) && markerData.map((marker, index) => (
         <Marker key={index} position={marker.position} icon={marker.icon} />
         
       ))}
