@@ -3,25 +3,25 @@ import L from 'leaflet';
 import { UserContext } from '../auth/context/UserContext'
 import { useContext } from "react";
 
-export const Markers = ({ marker }) => {
-
+export const Markers = ({ marker, markerData }) => {
+  
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
 
   const filteredMarkers = marker.filter((marker) => {
-    if (isAdmin ) {
-      return true; 
+    if (isAdmin) {
+      return true;
     } else if (user?._id === marker.user) {
-      return true; 
+      return true;
     } else {
-      return marker.status === true; 
+      return marker.status === true;
     }
   });
 
   return (
     <>
       {filteredMarkers.map((marker, index) => (
-        <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} eventHandlers={{click: () => marker.showPopup = true}}>
+        <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} eventHandlers={{ click: () => marker.showPopup = true }}>
           <Popup offset={[-2, 40]} closeButton={false} onClose={() => marker.showPopup = false} open={marker.showPopup}>
             <div>
               <h2>{marker.title}</h2>
@@ -29,6 +29,10 @@ export const Markers = ({ marker }) => {
             </div>
           </Popup>
         </Marker>
+      ))}
+
+      {markerData.map((marker, index) => (
+        <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} />
       ))}
     </>
   );

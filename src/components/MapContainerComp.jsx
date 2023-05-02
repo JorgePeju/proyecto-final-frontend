@@ -11,7 +11,8 @@ import { useFetchMarkers } from "../hooks/useFetchmarker";
 export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);
-  const [ addMarker ]= useMarker(user?._id); 
+
+  const [markerData, addMarker]= useMarker(user?._id); 
 
   const request = useFetchMarkers('http://localhost:3000/api/v1/entries');
   const marker = request.marker
@@ -31,7 +32,7 @@ export const MapContainerComp = () => {
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
       <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
   
-        <Markers marker={marker}/>
+        <Markers marker={marker} markerData={markerData}/>
       
     </MapContainer>
  

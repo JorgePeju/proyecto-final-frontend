@@ -1,10 +1,13 @@
 import L from "leaflet";
 import { consultation } from '../api/fetch';
+import { useState } from "react";
 
 export const useMarker = (userId) => { 
 
+  const [markerData, setMarkerData] = useState([])
+
   const addMarker = async (coordinates) => {
-    
+
     const marker = {
       title: '',
       description: '',
@@ -20,18 +23,23 @@ export const useMarker = (userId) => {
       }),
       
     };
-    
-    const body = marker
-    const method = 'POST'
-    const url = 'http://localhost:3000/api/v1/entries'
-    const response = await consultation(url, method, body)
-    
-    console.log(response)
-  };
 
-  return [addMarker];
+    setMarkerData(prevMarkers => [...prevMarkers, marker]);
+
+  };
+  
+  return [markerData, addMarker];
 };
 
+//* URL TORRE
+// https://objmap.zeldamods.org/icons/mapicon_tower.svg
 
 
+
+   // const body = marker
+    // const method = 'POST'
+    // const url = 'http://localhost:3000/api/v1/entries'
+    // const response = await consultation(url, method, body)
+    
+    // console.log(response)
 
