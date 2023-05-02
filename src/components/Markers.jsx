@@ -3,12 +3,12 @@ import L from 'leaflet';
 import { UserContext } from '../auth/context/UserContext'
 import { useContext } from "react";
 
-export const Markers = ({ marker, markerData, onMarkerClick  }) => {
+export const Markers = ({ markerMongo, markerData, onMarkerClick  }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
 
-  const filteredMarkers = marker.filter((marker) => {
+  const filteredMarkers = markerMongo.filter((marker) => {
     if (isAdmin) {
       return true;
     } else if (user?._id === marker.user) {

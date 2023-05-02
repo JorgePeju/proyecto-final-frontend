@@ -23,7 +23,7 @@ export const useFormModal = () => {
 
     const handleSubmit = async (e, selectedMarker) => {
         e.preventDefault();
-
+        console.log(selectedMarker)
         const updatedMarker = {
             ...selectedMarker,
             title: e.target.title.value,
@@ -35,14 +35,12 @@ export const useFormModal = () => {
         const method = 'POST'
         const url = 'http://localhost:3000/api/v1/entries'
         const request = await consultation(url, method, body)
-
+        console.log(request)
         if (request.ok === true) {
             setShowModal(false);
             setFormulario({ title: '', description: '', iconType: '' });
             navigateTo('/')
         }
-
-
     };
 
     const openModal = (marker) => {
@@ -54,10 +52,16 @@ export const useFormModal = () => {
         });
     };
 
+    const closeModal = () => {
+        setShowModal(false);
+
+    };
     return {
         showModal,
         handleChange,
         handleSubmit,
-        openModal
+        openModal,
+        closeModal,
+        setShowModal
     };
 };

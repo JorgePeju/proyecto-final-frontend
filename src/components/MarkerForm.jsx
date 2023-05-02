@@ -1,4 +1,4 @@
-export const MarkerForm = ({ selectedMarker, showModal, handleChange, handleSubmit }) => {
+export const MarkerForm = ({ selectedMarker, showModal, handleChange, handleSubmit, closeModal }) => {
 
     return (
       <div className={`${
@@ -21,6 +21,11 @@ export const MarkerForm = ({ selectedMarker, showModal, handleChange, handleSubm
           >
             <form  onSubmit={(e) => {handleSubmit(e, selectedMarker);}}>
               <div className="mb-4">
+              <div className="flex justify-center items-center">
+              <button type="button" onClick={closeModal} className="px-4 my-2 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >Cerrar
+              </button>
+              </div>
                 <label
                   className="block text-sm font-medium text-gray-700"
                 >
