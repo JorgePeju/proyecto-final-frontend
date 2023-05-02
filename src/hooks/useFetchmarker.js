@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getMarker} from '../helpers'
+import {getMarker} from '../helpers/getMarkers'
 
 export const useFetchMarkers = (url) => {
    

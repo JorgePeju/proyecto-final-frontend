@@ -1,5 +1,4 @@
 import L from "leaflet";
-import { consultation } from '../api/fetch';
 import { useState } from "react";
 
 export const useMarker = (userId) => { 
@@ -14,7 +13,7 @@ export const useMarker = (userId) => {
       position: coordinates,
       user: userId,
       status: false, 
-      iconType: 'Dungeon',
+      iconType: '',
       icon: L.icon({
         iconSize: [40, 61],
         iconAnchor: [20, 25],
@@ -27,7 +26,7 @@ export const useMarker = (userId) => {
     setMarkerData(prevMarkers => [...prevMarkers, marker]);
 
   };
- 
+
   return [markerData, addMarker];
 };
 

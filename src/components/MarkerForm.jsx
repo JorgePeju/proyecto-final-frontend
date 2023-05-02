@@ -1,8 +1,9 @@
-export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
+export const MarkerForm = ({ selectedMarker, showModal, handleChange, handleSubmit }) => {
 
     return (
-      <div
-       
+      <div className={`${
+        showModal ? "fixed z-10 inset-0 overflow-y-auto" : "hidden"
+      }`}
       >
         <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center">
           <div
@@ -18,7 +19,7 @@ export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
             aria-modal="true"
             aria-labelledby="modal-headline"
           >
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={(e) => {handleSubmit(e, selectedMarker);}}>
               <div className="mb-4">
                 <label
                   className="block text-sm font-medium text-gray-700"
@@ -29,7 +30,7 @@ export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
                   type="text"
                   id="title"
                   name="title"
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -42,7 +43,7 @@ export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
                 <textarea
                   id="description"
                   name="description"
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   rows="3"
                 />
@@ -56,7 +57,7 @@ export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
         <select
           id="iconType"
           name="iconType"
-          onChange={handleInputChange}
+          onChange={handleChange}
           className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         >
           <option value="Dungeon">Santuario</option>
@@ -77,6 +78,4 @@ export const MarkerForm = ({ showModal, handleInputChange, handleSubmit }) => {
   };
   
 
-//   className={`${
-//     showModal ? "fixed z-10 inset-0 overflow-y-auto" : "hidden"
-//   }`}
+ 

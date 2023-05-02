@@ -1,24 +1,23 @@
-import { MapContainer} from "react-leaflet";
-import { MapImage } from "../components/MapImage";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useMarker, useFetchMarkers} from "../hooks";
-import { Markers } from "./Markers";
+import { useContext, useState, useEffect } from "react";
+import { MapContainer } from "react-leaflet";
+import { MapImage, Markers, MarkerForm } from "../components";
+import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext } from '../auth/context/UserContext'
-import { useContext } from "react";
 
 export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);
-
-  const [markerData, addMarker]= useMarker(user?._id); 
+  const {showModal,handleChange, handleSubmit,openModal,} = useFormModal();
+  const [markerData, addMarker] = useMarker(user?._id);
 
   const request = useFetchMarkers('http://localhost:3000/api/v1/entries');
   const marker = request.marker
 
   const handleCoordinatesChange = (coordinates) => {
-    // if (!user?._id) return
-    addMarker(coordinates); 
+    if (!user?._id || showModal === true) return
+    addMarker(coordinates);
   };
 
   const bounds = [[0, 0], [6542 * 0.1, 7852 * 0.1]];
@@ -27,12 +26,29 @@ export const MapContainerComp = () => {
   const zoom = 0;
   const maxZoom = 4;
 
+  const [selectedMarker, setSelectedMarker] = useState(null);
+
+  const handleMarkerClick = (marker) => {
+    setSelectedMarker(marker);
+  };
+
+  useEffect(() => {
+    if (selectedMarker) {
+      openModal(selectedMarker);
+    }
+  }, [selectedMarker]);
+
   return (
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
       <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
-  
-        <Markers marker={marker} markerData={markerData}/>
-      
+      <Markers marker={marker} markerData={markerData} onMarkerClick={handleMarkerClick} />
+      <MarkerForm
+        selectedMarker={selectedMarker}
+        showModal={showModal}
+        handleInputChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
     </MapContainer>
- 
-  )}
+  )
+}
+
