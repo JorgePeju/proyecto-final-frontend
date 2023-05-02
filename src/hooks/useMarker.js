@@ -1,32 +1,35 @@
 import L from "leaflet";
-import { useState } from "react";
+import { useContext} from "react";
+import {MarkerContext} from '../context/MarkerContext'
 
-export const useMarker = (userId, openModal) => {
-  const [markerData, setMarkerData] = useState([]);
+export const useMarker = (userId) => { 
+
+  const { setMarker } = useContext(MarkerContext);
 
   const addMarker = async (coordinates) => {
-    const marker = {
-      title: "",
-      description: "",
+    
+    const newMarker = [{
+      title: '',
+      description: '',
       position: coordinates,
       user: userId,
-      status: false,
-      iconType: "",
+      status: false, 
+      iconType: '',
       icon: L.icon({
         iconSize: [40, 61],
         iconAnchor: [20, 25],
         popupAnchor: [2, -40],
-        iconUrl: "https://objmap.zeldamods.org/icons/mapicon_dungeon.svg",
+        iconUrl: 'https://objmap.zeldamods.org/icons/mapicon_dungeon.svg', 
       }),
-    };
+      
+    }];
+   
+    setMarker(newMarker);
 
-    setMarkerData((prevMarkers) => [...prevMarkers, marker]);
-    if (openModal) {
-      openModal(marker);
-    }
   };
 
-  return [markerData,setMarkerData, addMarker];
+  return [addMarker]
+  
 };
 
 

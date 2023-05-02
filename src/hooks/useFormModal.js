@@ -21,11 +21,11 @@ export const useFormModal = () => {
         })
     };
 
-    const handleSubmit = async (e, selectedMarker) => {
+    const handleSubmit = async (e, markerData) => {
         e.preventDefault();
-        console.log(selectedMarker)
+    
         const updatedMarker = {
-            ...selectedMarker,
+            ...markerData,
             title: e.target.title.value,
             description: e.target.description.value,
             iconType: e.target.iconType.value,

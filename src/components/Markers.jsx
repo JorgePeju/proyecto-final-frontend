@@ -1,9 +1,9 @@
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { UserContext } from '../auth/context/UserContext'
+import { UserContext } from '../context/UserContext'
 import { useContext } from "react";
 
-export const Markers = ({ markerMongo, markerData, onMarkerClick  }) => {
+export const Markers = ({ markerMongo, markerData }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
@@ -32,7 +32,7 @@ export const Markers = ({ markerMongo, markerData, onMarkerClick  }) => {
       ))}
 
       {markerData.map((marker, index) => (
-        <Marker key={index} position={marker.position} icon={marker.icon}  eventHandlers={{click: () => {onMarkerClick(marker);},}} />
+        <Marker key={index} position={marker.position} icon={marker.icon} />
         
       ))}
     </>

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import { consultation } from '../api/fetch';
-import { UserContext } from '../auth/context/UserContext'
+import { UserContext } from '../context/UserContext'
 
 export const useForm = (estadoInicial) => {
 

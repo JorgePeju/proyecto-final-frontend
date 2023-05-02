@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { HomePage, AdminPage } from '../pages'
 import { AuthRouter } from './AuthRouter'
-import { UserProvider } from '../auth/context/UserProvider'
+import { UserProvider } from '../context'
 
 export const AppRouter = () => {
 
