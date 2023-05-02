@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { storage } from '../helpers/firebaseStore';
+import { storage} from '../helpers';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { ImageOverlay } from 'react-leaflet';
 import { MapClickHandler } from './MapClickHandler';
