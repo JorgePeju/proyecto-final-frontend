@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { MarkerContext } from '../context';
+import { MarkerContext } from '../../context';
 
-export const MarkerForm = ({ markerData, showModal, handleChange, handleSubmit, closeModal }) => {
+export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal }) => {
 
   const { setMarker } = useContext(MarkerContext);
 
@@ -27,11 +27,11 @@ export const MarkerForm = ({ markerData, showModal, handleChange, handleSubmit, 
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          <form  onSubmit={(e) => {handleSubmit(e, markerData);}}>
+          <form  onSubmit={(e) => {handleSubmit(e);}}>
             <div className="mb-4">
-            <div className="flex justify-center items-center">
+            <div className="flex items-right">
             <button type="button" onClick={handleCloseModal} className="px-4 my-2 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            >Cerrar
+            >X
             </button>
             </div>
               <label

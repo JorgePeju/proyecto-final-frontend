@@ -1,12 +1,13 @@
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 import { useContext } from "react";
 
 export const Markers = ({ markerMongo, markerData }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
+  
   const filteredMarkers = markerMongo.filter((marker) => {
     if (isAdmin) {
       return true;
@@ -29,11 +30,11 @@ export const Markers = ({ markerMongo, markerData }) => {
           </Popup>
         </Marker>
       ))}
-
-      {Array.isArray(markerData) && markerData.map((marker, index) => (
-        <Marker key={index} position={marker.position} icon={marker.icon} />
+        { markerData &&
+        <Marker key={1} position={markerData.position} icon={markerData.icon} />
+        }
         
-      ))}
+        
     </>
   );
 };

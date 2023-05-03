@@ -8,7 +8,7 @@ export const useMarker = (userId) => {
 
   const addMarker = async (coordinates) => {
     
-    const newMarker = [{
+    const newMarker = {
       title: '',
       description: '',
       position: coordinates,
@@ -22,8 +22,8 @@ export const useMarker = (userId) => {
         iconUrl: 'https://objmap.zeldamods.org/icons/mapicon_dungeon.svg', 
       }),
       
-    }];
-   
+    };
+  
     setMarker(newMarker);
 
   };
@@ -37,11 +37,4 @@ export const useMarker = (userId) => {
 // https://objmap.zeldamods.org/icons/mapicon_tower.svg
 
 
-
-   // const body = marker
-    // const method = 'POST'
-    // const url = 'http://localhost:3000/api/v1/entries'
-    // const response = await consultation(url, method, body)
-    
-    // console.log(response)
 

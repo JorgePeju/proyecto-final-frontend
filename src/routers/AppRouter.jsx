@@ -8,13 +8,13 @@ export const AppRouter = () => {
     return (
 
         <UserProvider>
-            <Routes>
 
+            <Routes>
                 <Route path='/*' element={<HomePage />} />
                 <Route path='/admin/*' element={<AdminPage/>} />
                 <Route path='/auth/*' element={<AuthRouter />} />
-
             </Routes>
+            
         </UserProvider>
 
     )

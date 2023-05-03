@@ -1,7 +1,5 @@
-
-
-
 export const consultation = async (url, method, body = {}) => {
+
   let options = {};
 
   const data = { ...body };
