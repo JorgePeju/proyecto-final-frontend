@@ -6,24 +6,23 @@ export const AdminPage = () => {
   return (
 
     <>
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-center text-gray-700 font-semibold text-xl">
-            Panel de administración
-          </h1>
-        </div>
-      </header>
+      <header className="bg-gray-100 p-6 shadow-md">
+    <div className="container mx-auto">
+      <h1 className="text-2xl text-gray-700 font-semibold">
+        Panel de Administración
+      </h1>
+    </div>
+  </header>
+
       <NavBar />
 
       <AdminTable />
 
-      <footer className="bg-white shadow-md mt-8">
-        <div className="container mx-auto px-4 py-4">
-          <p className="text-center text-gray-700 font-semibold text-sm">
-            Footer
-          </p>
-        </div>
-      </footer>
+      <footer className="bg-gray-100 p-6 mt-6 shadow-md">
+    <div className="container mx-auto">
+      <p className="text-gray-700 font-medium">Footer</p>
+    </div>
+  </footer>
 
     </>
 
