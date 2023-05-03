@@ -36,6 +36,7 @@ export const useFormModal = () => {
         const url = 'http://localhost:3000/api/v1/entries'
         const request = await consultation(url, method, body)
         console.log(request)
+        
         if (request.ok === true) {
             setShowModal(false);
             setFormulario({ title: '', description: '', iconType: '' });
