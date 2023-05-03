@@ -4,7 +4,7 @@ import { consultation } from '../api/fetch';
 import { MarkerContext } from '../context'
 import {getIcon} from '../helpers'
 
-export const useFormModal = () => {
+export const useFormModal = (refreshMarkers) => {
 
     const [showModal, setShowModal] = useState(false);
     const [formulario, setFormulario] = useState('');
@@ -45,30 +45,37 @@ export const useFormModal = () => {
               }),
         }
 
-        const body = updatedMarker
+        const body = updatedMarker;
+        console.log(body)
         const method = 'POST'
         const url = 'http://localhost:3000/api/v1/entries'
         const request = await consultation(url, method, body)
        
         if (request.ok === true) {
-            setMarker();
+            setMarker('');
+            resetForm();
+            refreshMarkers();
+            closeModal();
+            
         }
     };
 
-    const openModal = (marker) => {
-
+    const openModal = () => {
         setShowModal(true);
-        setFormulario({
-            title: marker.title,
-            description: marker.description,
-            iconType: marker.iconType,
-        });
-
     };
 
     const closeModal = () => {
         setShowModal(false);
+        resetForm()
     };
+
+    const resetForm = () => {
+        setFormulario({
+          title: '',
+          description: '',
+          iconType: '',
+        });
+      };
 
     return {
         showModal,

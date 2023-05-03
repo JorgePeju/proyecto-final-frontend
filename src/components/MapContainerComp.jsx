@@ -1,5 +1,5 @@
 import "leaflet/dist/leaflet.css";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect} from "react";
 import { MapContainer } from "react-leaflet";
 import { MapImage, Markers, MarkerForm } from "./map";
 import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
@@ -10,17 +10,17 @@ export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);
   const { marker } = useContext(MarkerContext);
-
-  const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal();
   const [addMarker] = useMarker(user?._id);
-  const request = useFetchMarkers('http://localhost:3000/api/v1/entries');
-  const markerMongo = request.marker
+  const {markers, refreshMarkers} = useFetchMarkers('http://localhost:3000/api/v1/entries');
+  const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {
     //  if (!user?._id || showModal === true) return
     if (showModal === true) return
     addMarker(coordinates);
   };
+
+ 
 
   const openModalEffect = () => {
     if (marker && !showModal) {
@@ -36,11 +36,16 @@ export const MapContainerComp = () => {
   }, []);
 
   return (
+    <>
+    
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
       <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
-      <Markers markerMongo={markerMongo} markerData={marker} />
+      <Markers markerMongo={markers} markerData={marker} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
+    
     </MapContainer>
+   
+    </>
   )
 }
 
