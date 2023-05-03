@@ -20,11 +20,13 @@ export const useForm = (estadoInicial) => {
                 email: ev.target.email.value,
                 password: ev.target.password.value
             }
+
             const method = 'POST'
             const url = 'http://localhost:3000/api/v1/auth/login'
-
             const request = await consultation(url, method, body)
+            
             const userMongo = request.user
+            const token = request.token
 
             if (request.ok === true) {
                 setUser(userMongo)
@@ -34,12 +36,10 @@ export const useForm = (estadoInicial) => {
         } else {
 
             const body = {
-
                 username: ev.target.username.value,
                 email: ev.target.email.value,
                 password: ev.target.password.value,
                 date: new Date()
-
             }
 
             const method = 'POST'
@@ -47,6 +47,7 @@ export const useForm = (estadoInicial) => {
 
             const request = await consultation(url, method, body)
             const userMongo = request.user
+            const token = request.token
 
             if (request.ok === true) {
                 setUser(userMongo)
@@ -63,18 +64,14 @@ export const useForm = (estadoInicial) => {
         if (formulario == '') return
 
         setFormulario({
-
             ...formulario,
             [name]: value
         })
-
     }
 
     return {
-
         handleChange,
         handleSubmit,
-
     }
 
 }
