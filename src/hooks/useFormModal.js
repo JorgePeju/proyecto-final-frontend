@@ -50,7 +50,6 @@ export const useFormModal = (refreshMarkers) => {
        
         if (request.ok === true) {
             setMarker('');
-            resetForm();
             refreshMarkers();
             closeModal();  
         }
@@ -61,8 +60,9 @@ export const useFormModal = (refreshMarkers) => {
     };
 
     const closeModal = () => {
-        setShowModal(false);
         resetForm()
+        setShowModal(false);
+       
     };
 
     const resetForm = () => {
