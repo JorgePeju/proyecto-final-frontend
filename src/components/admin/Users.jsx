@@ -1,6 +1,6 @@
 
 
-export const Users = ({markerMongo}) => {
+export const Users = ({markerMongo, isLoading}) => {
   return (
 
     <>

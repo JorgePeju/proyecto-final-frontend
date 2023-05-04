@@ -3,7 +3,7 @@ import {useFetchMarkers} from '../hooks'
 import { Route, Routes } from 'react-router-dom'
 
 export const AdminPage = () => {
-  const { markers } = useFetchMarkers('http://localhost:3000/api/v1/entries');
+  const { markers, isLoading } = useFetchMarkers('http://localhost:3000/api/v1/entries');
 
   return (
 
@@ -19,8 +19,8 @@ export const AdminPage = () => {
       <NavBar />
 
          <Routes>
-                <Route path='/entries' element={<Entry markerMongo={markers} /> } />
-                <Route path='/users' element={<Users markerMongo={markers} /> } />
+                <Route path='/entries' element={<Entry markerMongo={markers} isLoading={isLoading} /> } />
+                <Route path='/users' element={<Users markerMongo={markers} isLoading={isLoading} /> } />
             </Routes>
 
     </>

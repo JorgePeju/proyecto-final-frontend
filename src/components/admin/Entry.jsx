@@ -1,5 +1,5 @@
 
-export const Entry = ({ markerMongo }) => {
+export const Entry = ({ markerMongo, isLoading }) => {
 
   return (
 

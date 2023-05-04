@@ -5,14 +5,14 @@ export const useFetchMarkers = (url) => {
    
     const [markers, setMarker] = useState([]);
     const [refresh, setRefresh] = useState(false);
-   // const [isLoading, setIsLoading] = useState(true);
+   const [isLoading, setIsLoading] = useState(true);
   
     const consultMarkers = async () => {
 
-       // setIsLoading(true);
+       setIsLoading(true);
         const markerMongo = await getMarker(url);
         setMarker(markerMongo);
-       // setIsLoading(false);
+       setIsLoading(false);
        
     };
 
@@ -29,7 +29,7 @@ export const useFetchMarkers = (url) => {
   
     return {
         markers,
-       // isLoading,
+       isLoading,
        refreshMarkers
     };
 };

@@ -5,14 +5,14 @@ import { MapImage, Markers, MarkerForm } from "./map";
 import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext, MarkerContext } from '../context'
 import { bounds, center, crs, maxZoom, zoom } from '../helpers'
-import { UserPanel } from "./user/UserPanel";
+
 
 export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);
   const { marker } = useContext(MarkerContext);
   const [addMarker] = useMarker(user?._id);
-  const {markers, refreshMarkers} = useFetchMarkers('http://localhost:3000/api/v1/entries');
+  const {markers,isLoading, refreshMarkers} = useFetchMarkers('http://localhost:3000/api/v1/entries');
   const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {
@@ -41,7 +41,7 @@ export const MapContainerComp = () => {
 
 
     <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
-      <Markers markerMongo={markers} markerData={marker} />
+      <Markers markerMongo={markers} markerData={marker} isLoading={isLoading} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
     
     </MapContainer>

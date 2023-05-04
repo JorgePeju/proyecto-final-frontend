@@ -3,7 +3,7 @@ import L from 'leaflet';
 import { UserContext } from '../../context/UserContext'
 import { useContext } from "react";
 
-export const Markers = ({ markerMongo, markerData }) => {
+export const Markers = ({ markerMongo, markerData, isLoading }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
@@ -19,25 +19,30 @@ export const Markers = ({ markerMongo, markerData }) => {
   });
 
   return (
-    <>
-      {filteredMarkers.map((marker, index) => (
-        <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} eventHandlers={{ click: () => marker.showPopup = true }}>
-          <Popup offset={[-2, 40]} closeButton={false} onClose={() => marker.showPopup = false} open={marker.showPopup}>
-            <div>
-              <h2>{marker.title}</h2>
-              <p>{marker.description}</p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-        { markerData &&
-        <Marker key={1} position={markerData.position} icon={markerData.icon} />
-        }
+  <>
+    {isLoading && !markerData ? (
+      <p>...Cargando</p>
+    ) : (
+      <>
+        {filteredMarkers.map((marker, index) => (
+          <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} eventHandlers={{ click: () => (marker.showPopup = true) }}>
+            <Popup offset={[-2, 40]} closeButton={false} onClose={() => (marker.showPopup = false)} open={marker.showPopup}>
+              <div>
+                <h2>{marker.title}</h2>
+                <p>{marker.description}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+        {markerData && (
+          <Marker key={1} position={markerData.position} icon={markerData.icon}/>
+        )}
+      </>
+    )}
+  </>
+);}
         
-        
-    </>
-  );
-};
+
 
 
 
