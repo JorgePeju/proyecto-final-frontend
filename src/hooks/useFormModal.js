@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
 import { MarkerContext } from '../context'
-import {getIcon} from '../helpers'
 
 export const useFormModal = (refreshMarkers) => {
 
@@ -51,7 +50,6 @@ export const useFormModal = (refreshMarkers) => {
     const closeModal = () => {
         resetForm()
         setShowModal(false);
-       
     };
 
     const resetForm = () => {
