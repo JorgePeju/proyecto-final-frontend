@@ -24,6 +24,8 @@ export const useFetchMarkers = (url) => {
     useEffect(() => {
         consultMarkers();
     }, [refresh]);
+
+    //* Este valor viene desde el useFormModal y hace una llamada a la api cuando el formulario se envía
   
     return {
         markers,

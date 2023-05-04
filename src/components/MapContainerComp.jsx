@@ -5,6 +5,7 @@ import { MapImage, Markers, MarkerForm } from "./map";
 import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext, MarkerContext } from '../context'
 import { bounds, center, crs, maxZoom, zoom } from '../helpers'
+import { UserPanel } from "./user/UserPanel";
 
 export const MapContainerComp = () => {
 
@@ -31,15 +32,15 @@ export const MapContainerComp = () => {
     openModalEffect()
   }, [showModal, openModal]);
 
-  useEffect(() => {
-
-  }, []);
 
   return (
     <>
     
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
-      <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
+   
+
+
+    <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
       <Markers markerMongo={markers} markerData={marker} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
     

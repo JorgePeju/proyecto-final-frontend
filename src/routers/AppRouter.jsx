@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, AdminPage } from '../pages'
+import { HomePage, LoginPage } from '../pages'
 import { UserProvider } from '../context'
+import { AdminRouters } from './AdminRouters'
 
 export const AppRouter = () => {
 
@@ -10,7 +11,8 @@ export const AppRouter = () => {
 
             <Routes>
                 <Route path='/*' element={<HomePage />} />
-                <Route path='/admin/*' element={<AdminPage/>} />
+                <Route path='/admin/*' element={<AdminRouters/>} />
+                <Route path='/auth/*' element={<LoginPage/>} />
             </Routes>
             
         </UserProvider>

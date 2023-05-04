@@ -28,3 +28,13 @@
 .z-1k1 {
     z-index:1100
 }
+
+.user-panel-container {
+    position: absolute;
+    top: 10px; 
+    left: 10px;
+    background-color: white;
+    padding: 1rem; 
+    border-radius: 5px;
+}
+  

@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
-// import { useNavigate } from 'react-router-dom'
 import { MarkerContext } from '../context'
 import {getIcon} from '../helpers'
 
@@ -8,7 +7,6 @@ export const useFormModal = (refreshMarkers) => {
 
     const [showModal, setShowModal] = useState(false);
     const [formulario, setFormulario] = useState('');
-    // const navigateTo = useNavigate()
     const { marker, setMarker } = useContext(MarkerContext);
 
     const handleChange = ({ target }) => {
@@ -46,7 +44,6 @@ export const useFormModal = (refreshMarkers) => {
         }
 
         const body = updatedMarker;
-        console.log(body)
         const method = 'POST'
         const url = 'http://localhost:3000/api/v1/entries'
         const request = await consultation(url, method, body)
@@ -55,8 +52,7 @@ export const useFormModal = (refreshMarkers) => {
             setMarker('');
             resetForm();
             refreshMarkers();
-            closeModal();
-            
+            closeModal();  
         }
     };
 

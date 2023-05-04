@@ -1,7 +1,9 @@
-import { AdminTable, NavBar } from "../components/admin"
-
+import { Entry, Users, NavBar } from "../components/admin"
+import {useFetchMarkers} from '../hooks'
+import { Route, Routes } from 'react-router-dom'
 
 export const AdminPage = () => {
+  const { markers } = useFetchMarkers('http://localhost:3000/api/v1/entries');
 
   return (
 
@@ -16,13 +18,10 @@ export const AdminPage = () => {
 
       <NavBar />
 
-      <AdminTable />
-
-      <footer className="bg-gray-100 p-6 mt-6 shadow-md">
-    <div className="container mx-auto">
-      <p className="text-gray-700 font-medium">Footer</p>
-    </div>
-  </footer>
+         <Routes>
+                <Route path='/entries' element={<Entry markerMongo={markers} /> } />
+                <Route path='/users' element={<Users markerMongo={markers} /> } />
+            </Routes>
 
     </>
 

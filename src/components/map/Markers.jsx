@@ -7,11 +7,11 @@ export const Markers = ({ markerMongo, markerData }) => {
 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
-  
+
   const filteredMarkers = markerMongo.filter((marker) => {
     if (isAdmin) {
       return true;
-    } else if (user?._id === marker.user) {
+    } else if (user?._id === marker.userId) {
       return true;
     } else {
       return marker.status === true;
