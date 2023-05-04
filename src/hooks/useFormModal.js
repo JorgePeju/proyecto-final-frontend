@@ -32,18 +32,7 @@ export const useFormModal = (refreshMarkers) => {
             iconType: e.target.iconType.value,
         };
 
-        const newUrlIcon= getIcon(e.target.iconType.value, formMarker);
-        const updatedMarker = {
-            ...formMarker,
-            icon: L.icon({
-                iconSize: [40, 61],
-                iconAnchor: [20, 25],
-                popupAnchor: [2, -40],
-                iconUrl: `${newUrlIcon}`, 
-              }),
-        }
-
-        const body = updatedMarker;
+        const body = formMarker;
         const method = 'POST'
         const url = 'http://localhost:3000/api/v1/entries'
         const request = await consultation(url, method, body)

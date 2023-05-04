@@ -2,6 +2,7 @@ import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { UserContext } from '../../context/UserContext'
 import { useContext } from "react";
+import {getIcon} from '../../helpers'
 
 export const Markers = ({ markerMongo, markerData, isLoading }) => {
 
@@ -19,29 +20,35 @@ export const Markers = ({ markerMongo, markerData, isLoading }) => {
   });
 
   return (
-  <>
-    {isLoading && !markerData ? (
-      <p>...Cargando</p>
-    ) : (
-      <>
-        {filteredMarkers.map((marker, index) => (
-          <Marker key={index} position={marker.position} icon={L.icon(marker.icon.options)} eventHandlers={{ click: () => (marker.showPopup = true) }}>
-            <Popup offset={[-2, 40]} closeButton={false} onClose={() => (marker.showPopup = false)} open={marker.showPopup}>
-              <div>
-                <h2>{marker.title}</h2>
-                <p>{marker.description}</p>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-        {markerData && (
-          <Marker key={1} position={markerData.position} icon={markerData.icon}/>
-        )}
-      </>
-    )}
-  </>
-);}
-        
+    <>
+      {markerData && (
+        <Marker key={1} position={markerData.position} icon={markerData.icon} />
+      )}
+      {isLoading ? (
+        <span className="loader"></span>
+      ) : (
+        <>
+          {filteredMarkers.map((marker, index) => {
+            const iconOptions = { ...marker.icon.options };
+            iconOptions.iconUrl = getIcon(marker.iconType);
+
+            return (
+              <Marker key={index} position={marker.position} icon={L.icon(iconOptions)} eventHandlers={{ click: () => (marker.showPopup = true) }}>
+                <Popup offset={[-2, 40]} closeButton={false} onClose={() => (marker.showPopup = false)} open={marker.showPopup}>
+                  <div>
+                    <h2>{marker.title}</h2>
+                    <p>{marker.description}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            );
+          })}
+        </>
+      )}
+    </>
+  );
+}
+
 
 
 
