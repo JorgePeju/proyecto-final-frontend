@@ -47,12 +47,13 @@ export const Login = () => {
                             </div>
                         </button>
 
-                        <p className="mt-8">¿Aún no tienes una cuenta? <Link to='/register' className="text-blue-500 hover:text-blue-700 font-semibold">Crea tu cuenta aquí</Link></p>
+                        <p className="mt-8">¿Aún no tienes una cuenta? <Link to='/auth/register' className="text-blue-500 hover:text-blue-700 font-semibold">Crea tu cuenta aquí</Link></p>
 
                     </div>
                 </div>
 
             </section>
+            <span className="loader"></span>
         </>
     )
 }

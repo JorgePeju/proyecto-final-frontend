@@ -8,9 +8,9 @@ export const HomePage = () => {
 
     <MarkerProvider>
 
-      <UserPanel />
+      {/* <UserPanel /> */}
       <MapContainerComp />
-
+      
     </MarkerProvider>
 
   )

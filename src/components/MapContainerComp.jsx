@@ -43,7 +43,6 @@ export const MapContainerComp = () => {
     <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
       <Markers markerMongo={markers} markerData={marker} isLoading={isLoading} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
-    
     </MapContainer>
    
     </>

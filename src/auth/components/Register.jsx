@@ -52,7 +52,7 @@ export const Register = () => {
                     </div>
                 </button>
 
-                <p className="mt-8"><Link to='/login'className="text-blue-500 hover:text-blue-700 font-semibold">¿Ya tienes una cuenta?</Link></p>
+                <p className="mt-8"><Link to='/auth/login'className="text-blue-500 hover:text-blue-700 font-semibold">¿Ya tienes una cuenta?</Link></p>
 
 
             </div>
