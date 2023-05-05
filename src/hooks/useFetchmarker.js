@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import {getMarker} from '../helpers/getMarkers';
+import { getUrl } from "../helpers";
 
-export const useFetchMarkers = (url) => {
+export const useFetchMarkers = (entry) => {
    
     const [markers, setMarker] = useState([]);
     const [refresh, setRefresh] = useState(false);
-   const [isLoading, setIsLoading] = useState(true);
-  
+    const [isLoading, setIsLoading] = useState(true);
+    const url = getUrl(entry)
+
     const consultMarkers = async () => {
 
        setIsLoading(true);

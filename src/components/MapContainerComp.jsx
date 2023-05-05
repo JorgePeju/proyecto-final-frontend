@@ -12,7 +12,7 @@ export const MapContainerComp = () => {
   const { user } = useContext(UserContext);
   const { marker } = useContext(MarkerContext);
   const [addMarker] = useMarker(user?._id);
-  const {markers,isLoading, refreshMarkers} = useFetchMarkers('http://localhost:3000/api/v1/entries');
+  const {markers,isLoading, refreshMarkers} = useFetchMarkers('marker');
   const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {

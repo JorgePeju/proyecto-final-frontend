@@ -1,14 +1,19 @@
+import { consultation } from "../api/fetch";
+import { getUrl } from "../helpers";
 
 
-export const useDeleteEntry = async (entry) => {
+export const useDeleteEntry = async (id, entry, refresh) => {
 
-    console.log(entry)
-  const method = 'POST';
-  const id = entry.id
-  const url = `http://localhost:3000/api/v1/entries/${id}`;
+  const method = 'DELETE';
+  const url = getUrl(entry,id);
+
   try {
-    const response = await consultation(url, method);
+    const request = await consultation(url, method);
     
+    if (request.ok === true) {
+    refresh();
+   
+  }
  
   } catch (error) {
    

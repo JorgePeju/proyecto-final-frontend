@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { getUsers } from '../helpers'
+import { getUrl, getUsers } from '../helpers'
 
-export const useFetchUsers = (url) => {
+export const useFetchUsers = (entry) => {
    
     const [users, setUsers] = useState([]);
     const [refreshU, setRefreshUsers] = useState(false);
    // const [isLoading, setIsLoading] = useState(true);
-   
+    const url = getUrl(entry)
+
     const consultUsers = async () => {
 
        // setIsLoading(true);

@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import { consultation } from '../api/fetch';
 import { UserContext } from '../context/UserContext'
+import { getUrl } from "../helpers/getUrl";
 
 export const useForm = (estadoInicial) => {
 
@@ -22,9 +23,8 @@ export const useForm = (estadoInicial) => {
             }
 
             const method = 'POST'
-            const url = 'http://localhost:3000/api/v1/auth/login'
+            const url = getUrl('auth', 'login')
             const request = await consultation(url, method, body)
-            
             const userMongo = request.user
             const token = request.token
 
@@ -43,8 +43,8 @@ export const useForm = (estadoInicial) => {
             }
 
             const method = 'POST'
-            const url = 'http://localhost:3000/api/v1/auth/register'
-
+            const url = getUrl('auth', 'register')
+            console.log(url)
             const request = await consultation(url, method, body)
             const userMongo = request.user
             const token = request.token
