@@ -7,9 +7,10 @@ import { getUrl } from "../helpers/getUrl";
 export const useForm = (estadoInicial) => {
 
     const [formulario, setFormulario] = useState(estadoInicial);
+    const [error, setError] = useState()
     const navigateTo = useNavigate()
     const { setUser } = useContext(UserContext);
-
+    
     const handleSubmit = async (ev) => {
 
         ev.preventDefault()
@@ -23,13 +24,25 @@ export const useForm = (estadoInicial) => {
 
             const method = 'POST'
             const url = getUrl('auth', 'login')
+
+            console.log(body, method, url)
             const request = await consultation(url, method, body)
             const userMongo = request.user
             const token = request.token
-
+            console.log(request)
             if (request.ok === true) {
                 setUser(userMongo)
                 navigateTo('/')
+            }else {
+             
+                if(request.error === 'auth/weak-password'){
+                    setError('Contraseña débil, debe tener al menos 6 caracteres') 
+                }else if (request.error === 'auth/invalid-email'){
+                    setError('Correo incorrecto')
+                } else if (request.error){
+                    setError('Email o contraseña incorrecto')
+                }  
+               
             }
 
         } else {
@@ -48,8 +61,19 @@ export const useForm = (estadoInicial) => {
             const token = request.token
 
             if (request.ok === true) {
+
                 setUser(userMongo)
                 navigateTo('/')
+                
+            }else {
+
+                if(request.error === 'auth/weak-password'){
+                    setError('Contraseña débil, debe tener al menos 6 caracteres') 
+                }else if (request.error === 'auth/invalid-email'){
+                    setError('Correo incorrecto')
+                } else if (request.error){
+                    setError('Email o contraseña incorrecto')
+                }  
             }
         }
     }
@@ -69,6 +93,7 @@ export const useForm = (estadoInicial) => {
     return {
         handleChange,
         handleSubmit,
+        error
     }
 
 }

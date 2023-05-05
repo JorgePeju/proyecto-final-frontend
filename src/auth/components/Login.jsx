@@ -3,8 +3,8 @@ import {useForm} from '../../hooks/useFormUsers'
 
 export const Login = () => {
 
-    const {handleChange, handleSubmit}= useForm('')
-
+    const {handleChange, handleSubmit, error}= useForm('')
+    console.log(error)
     return (
         <>
             <section className="flex flex-col md:flex-row h-screen items-center">
@@ -32,7 +32,7 @@ export const Login = () => {
                             <div className="text-right mt-2">
                                 <a href="#" className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">¿Olvidaste la contraseña?</a>
                             </div>
-
+                            { error && <p>{error}</p>}
                             <button type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
                             px-4 py-3 mt-6">Log In</button>
                         </form>
@@ -50,6 +50,7 @@ export const Login = () => {
                         <p className="mt-8">¿Aún no tienes una cuenta? <Link to='/auth/register' className="text-blue-500 hover:text-blue-700 font-semibold">Crea tu cuenta aquí</Link></p>
 
                     </div>
+                   
                 </div>
 
             </section>

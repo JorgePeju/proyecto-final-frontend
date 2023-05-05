@@ -3,7 +3,7 @@ import {useForm} from '../../hooks/useFormUsers';
 
 export const Register = () => {
 
-    const {handleChange, handleSubmit}= useForm('')
+    const {handleChange, handleSubmit, error}= useForm('')
 
 
 
@@ -27,7 +27,7 @@ export const Register = () => {
                     </div>
                     <div>
                         <label className="block text-gray-700">Correo electrónico</label>
-                        <input type="email" name="email" id="email" placeholder="Introduce tu correo" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus
+                        <input type="text" name="email" id="email" placeholder="Introduce tu correo" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus
                         onChange={handleChange}  />
                     </div>
 
@@ -37,7 +37,7 @@ export const Register = () => {
                         focus:bg-white focus:outline-none"
                         onChange={handleChange} />
                     </div>
-
+                    { error && <p>{error}</p>}
                     <button type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
                     px-4 py-3 mt-6">Log In</button>
                 </form>
