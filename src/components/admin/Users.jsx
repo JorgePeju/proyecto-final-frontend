@@ -1,8 +1,9 @@
 
 
 export const Users = ({markerMongo, isLoading}) => {
-  return (
 
+
+  return (
     <>
 
     <p></p>
@@ -39,13 +40,13 @@ export const Users = ({markerMongo, isLoading}) => {
 
                 <tr key={index} className="bg-white">
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    <p className="font-bold text-blue-500 hover:underline">{marker.userUsername}</p>
+                    <p className="font-bold text-blue-500 hover:underline">{marker.username}</p>
                   </td>
                   <td className="p-2 text-sm text-gray-700 whitespace-nowrap">
-                    {marker.userDate.substring(0, 10)}
+                    {marker.date.substring(0, 10)}
                   </td>
-                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.userEmail}</td>
-                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.userRole}</td>
+                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.email}</td>
+                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.role}</td>
                   <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
                     Vista Detalle
                   </button></td>
@@ -77,7 +78,7 @@ export const Users = ({markerMongo, isLoading}) => {
                 <div className="text-sm font-medium text-black">{marker.userRole}</div>
               </div>
               <div className="text-sm text-gray-700">
-              {marker.userDate.substring(0, 10)}
+              {marker.date.substring(0, 10)}
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
