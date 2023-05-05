@@ -1,3 +1,5 @@
+import {useDeleteEntry} from '../../hooks'
+
 
 export const Entry = ({ markerMongo, isLoading }) => {
 
@@ -58,7 +60,8 @@ export const Entry = ({ markerMongo, isLoading }) => {
                   <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                     Editar
                   </button></td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap">
+                    <button onClick={() => useDeleteEntry(marker)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                     Borrar
                   </button></td>
                 </tr>

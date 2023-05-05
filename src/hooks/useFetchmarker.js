@@ -16,7 +16,6 @@ export const useFetchMarkers = (url) => {
        
     };
 
-    
     const refreshMarkers = () => {
       setRefresh(!refresh);
     };
