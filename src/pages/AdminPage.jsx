@@ -1,10 +1,10 @@
-import { Entry, Users, NavBar } from "../components/admin"
+import { Entry, Users, NavBar, AdminFormEntry } from "../components/admin"
 import { useFetchMarkers, useFetchUsers } from '../hooks'
 import { Route, Routes } from 'react-router-dom'
 
 export const AdminPage = () => {
-  const { markers, isLoading, refreshMarkers } = useFetchMarkers('marker');
-  const { users, refreshUsers } = useFetchUsers('user')
+  const { markers, isLoading, refreshMarkers } = useFetchMarkers('entries');
+  const { users, refreshUsers } = useFetchUsers('users')
 
   return (
 
@@ -22,6 +22,7 @@ export const AdminPage = () => {
       <Routes>
         <Route path='/entries' element={<Entry markerMongo={markers} isLoading={isLoading} refreshMarkers={refreshMarkers} />} />
         <Route path='/users' element={<Users markerMongo={users} isLoading={isLoading} refreshUsers={refreshUsers} />} />
+        <Route path='/entries/:id' element={<AdminFormEntry/>} />
       </Routes>
 
     </>

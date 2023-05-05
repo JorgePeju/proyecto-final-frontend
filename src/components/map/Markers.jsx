@@ -2,7 +2,7 @@ import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { UserContext } from '../../context/UserContext'
 import { useContext } from "react";
-import {getIcon} from '../../helpers'
+import { getIcon } from '../../helpers'
 
 export const Markers = ({ markerMongo, markerData, isLoading }) => {
 
@@ -31,7 +31,6 @@ export const Markers = ({ markerMongo, markerData, isLoading }) => {
           {filteredMarkers.map((marker, index) => {
             const iconOptions = { ...marker.icon.options };
             iconOptions.iconUrl = getIcon(marker.iconType);
-
             return (
               <Marker key={index} position={marker.position} icon={L.icon(iconOptions)} eventHandlers={{ click: () => (marker.showPopup = true) }}>
                 <Popup offset={[-2, 40]} closeButton={false} onClose={() => (marker.showPopup = false)} open={marker.showPopup}>

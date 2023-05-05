@@ -56,7 +56,6 @@ export const useFormModal = (refreshMarkers) => {
         setFormulario({
           title: '',
           description: '',
-          iconType: '',
         });
       };
 

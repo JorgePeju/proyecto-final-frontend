@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import {useDeleteEntry} from '../../hooks'
 
-
 export const Entry = ({ markerMongo, isLoading, refreshMarkers }) => {
+
+  const navigateTo = useNavigate()
 
   return (
 
@@ -25,9 +27,6 @@ export const Entry = ({ markerMongo, isLoading, refreshMarkers }) => {
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
                   Estado
-                </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
-                  Vista Detalle
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
                   Editar
@@ -54,14 +53,13 @@ export const Entry = ({ markerMongo, isLoading, refreshMarkers }) => {
                       {marker.status ? 'Activado' : 'Inactivo'}
                     </span>
                   </td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                    Vista Detalle
-                  </button></td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap">
+                    <button onClick={() => navigateTo(`/admin/entries/${marker.id}`)}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                     Editar
                   </button></td>
                   <td className="p-1 text-sm text-gray-700 whitespace-nowrap">
-                    <button onClick={() => useDeleteEntry(marker.id, 'marker', refreshMarkers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                    <button onClick={() => useDeleteEntry(marker.id, 'entries', refreshMarkers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                     Borrar
                   </button></td>
                 </tr>
@@ -93,13 +91,11 @@ export const Entry = ({ markerMongo, isLoading, refreshMarkers }) => {
                 {marker.description.substring(0, 10)}
               </div>
               <div className="flex items-center space-x-2 text-sm">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                  Vista Detalle
-                </button>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                <button onClick={() => navigateTo(`/admin/entries/${marker.id}`)}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                   Editar
                 </button>
-                <button onClick={() => useDeleteEntry(marker.id, 'marker', refreshMarkers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                <button onClick={() => useDeleteEntry(marker.id, 'entries', refreshMarkers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                   Borrar
                 </button>
               </div>

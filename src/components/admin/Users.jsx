@@ -1,8 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import {useDeleteEntry} from '../../hooks'
 
 export const Users = ({markerMongo, isLoading, refreshUsers}) => {
 
-
+  const navigateTo = useNavigate()
   return (
     <>
 
@@ -25,9 +26,6 @@ export const Users = ({markerMongo, isLoading, refreshUsers}) => {
                  Rol
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
-                  Vista Detalle
-                </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
                   Editar
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
@@ -47,10 +45,8 @@ export const Users = ({markerMongo, isLoading, refreshUsers}) => {
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.email}</td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.role}</td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-                    Vista Detalle
-                  </button></td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button onClick={() => navigateTo(`/admin/users/${marker.id}`)}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                     Editar
                   </button></td>
                   <td className="p-1 text-sm text-gray-700 whitespace-nowrap">
@@ -82,10 +78,8 @@ export const Users = ({markerMongo, isLoading, refreshUsers}) => {
               {marker.date.substring(0, 10)}
               </div>
               <div className="flex items-center space-x-2 text-sm">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                    Vista Detalle
-                  </button>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                <button onClick={() => navigateTo(`/admin/users/${marker.id}`)}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
                   Editar
                 </button>
                 <button onClick={() => useDeleteEntry(marker.id, 'user', refreshUsers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">

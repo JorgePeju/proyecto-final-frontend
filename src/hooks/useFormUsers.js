@@ -8,7 +8,6 @@ export const useForm = (estadoInicial) => {
 
     const [formulario, setFormulario] = useState(estadoInicial);
     const navigateTo = useNavigate()
-
     const { setUser } = useContext(UserContext);
 
     const handleSubmit = async (ev) => {
@@ -44,7 +43,6 @@ export const useForm = (estadoInicial) => {
 
             const method = 'POST'
             const url = getUrl('auth', 'register')
-            console.log(url)
             const request = await consultation(url, method, body)
             const userMongo = request.user
             const token = request.token
@@ -54,7 +52,6 @@ export const useForm = (estadoInicial) => {
                 navigateTo('/')
             }
         }
-
     }
 
     const handleChange = ({ target }) => {
