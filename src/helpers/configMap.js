@@ -1,7 +1,31 @@
 import L from "leaflet";
 
+/**
+ * Coordenadas límites del mapa.
+ * @type {Array<Array<number>>}
+ */
 export const bounds = [[0, 0], [6542 * 0.05, 7852 * 0.05]];
+
+/**
+ * Sistema de referencia de coordenadas para el mapa.
+ * @type {L.CRS.Simple}
+ */
 export const crs = L.CRS.Simple;
+
+/**
+ * Centro inicial del mapa.
+ * @type {Array<number>}
+ */
 export const center = [150, 225];
+
+/**
+ * Nivel de zoom inicial del mapa.
+ * @type {number}
+ */
 export const zoom = 0;
+
+/**
+ * Nivel máximo de zoom del mapa.
+ * @type {number}
+ */
 export const maxZoom = 4;

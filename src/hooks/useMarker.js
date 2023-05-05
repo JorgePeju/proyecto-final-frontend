@@ -2,6 +2,13 @@ import L from "leaflet";
 import { useContext} from "react";
 import {MarkerContext} from '../context/MarkerContext'
 
+
+/**
+ * Función para agregar un marcador al mapa y guardarlo de forma momentánea en un context para que el usuario los envíe a la API.
+ *
+ * @param {string} userId - El ID del usuario que crea el marcador.
+ * @returns {Array<Function>} - Array con la función para agregar un marcador.
+ */
 export const useMarker = (userId) => { 
 
   const { setMarker } = useContext(MarkerContext);

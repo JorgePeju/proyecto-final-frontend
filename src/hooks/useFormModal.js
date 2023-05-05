@@ -2,6 +2,12 @@ import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
 import { MarkerContext } from '../context'
 
+/**
+ * Proporciona la funcionalidad para manejar el formulario que se muestra al generar el marcador.
+ *
+ * @param {Function} refreshMarkers - Función para actualizar los marcadores después de enviar el formulario.
+ * @returns {Object} - Objeto con funciones y estados para controlar el formulario  de los marcadores.
+ */
 export const useFormModal = (refreshMarkers) => {
 
     const [showModal, setShowModal] = useState(false);

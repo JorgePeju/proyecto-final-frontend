@@ -4,6 +4,12 @@ import { consultation } from '../api/fetch';
 import { UserContext } from '../context/UserContext'
 import { getUrl } from "../helpers/getUrl";
 
+/**
+ * Funcionalidad para manejar un formulario login y registro.
+ *
+ * @param {Object} estadoInicial - El estado inicial del formulario.
+ * @returns {Object} - Objeto con funciones y estados para controlar el formulario.
+ */
 export const useForm = (estadoInicial) => {
 
     const [formulario, setFormulario] = useState(estadoInicial);

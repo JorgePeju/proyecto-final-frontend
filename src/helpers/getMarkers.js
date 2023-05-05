@@ -1,5 +1,11 @@
 import { consultation } from '../api/fetch';
 
+/**
+ * Obtiene la información del marcador a través de la API.
+ *
+ * @param {string} url - La URL de la API para obtener los datos del marcador.
+ * @returns {Promise<Array<Object>>} - Un array de objetos que contienen información sobre los marcadores.
+ */
 export const getMarker = async (url) => {
 
     const request = await consultation(url);

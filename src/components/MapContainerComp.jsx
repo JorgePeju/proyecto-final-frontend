@@ -6,6 +6,11 @@ import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext, MarkerContext } from '../context'
 import { bounds, center, crs, maxZoom, zoom } from '../helpers'
 
+/**
+ * Componente contenedor principal del mapa que muestra los marcadores.
+ *
+ * @returns {JSX.Element} - El componente MapContainerComp.
+ */
 export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);

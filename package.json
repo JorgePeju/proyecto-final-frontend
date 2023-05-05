@@ -8,11 +8,13 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "@firebase/storage": "^0.11.2",
     "firebase": "^9.20.0",
+    "jsdoc": "^4.0.2",
     "leaflet": "^1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

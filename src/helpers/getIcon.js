@@ -1,5 +1,11 @@
 
-
+/**
+ * Obtiene la URL del ícono según el tipo de icono especificado.
+ *
+ * @param {string} icon - El tipo de icono.
+ * @returns {string} - La URL del icono.
+ * @throws {Error} - Lanza un error si la variable de entorno no está definida.
+ */
 export const getIcon = (icon) => {
 
     let url = '';
