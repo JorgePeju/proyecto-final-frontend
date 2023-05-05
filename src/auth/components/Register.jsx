@@ -3,9 +3,7 @@ import {useForm} from '../../hooks/useFormUsers';
 
 export const Register = () => {
 
-    const {handleChange, handleSubmit, error}= useForm('')
-
-
+  const {handleChange, handleSubmit, error}= useForm('')
 
   return (
     <>

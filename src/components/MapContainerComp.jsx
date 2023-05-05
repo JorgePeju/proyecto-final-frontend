@@ -6,7 +6,6 @@ import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext, MarkerContext } from '../context'
 import { bounds, center, crs, maxZoom, zoom } from '../helpers'
 
-
 export const MapContainerComp = () => {
 
   const { user } = useContext(UserContext);
@@ -16,12 +15,9 @@ export const MapContainerComp = () => {
   const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {
-    //  if (!user?._id || showModal === true) return
-    if (showModal === true) return
+     if (!user?._id || showModal === true) return
     addMarker(coordinates);
   };
-
- 
 
   const openModalEffect = () => {
     if (marker && !showModal) {
@@ -37,9 +33,6 @@ export const MapContainerComp = () => {
     <>
     
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
-   
-
-
     <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
       <Markers markerMongo={markers} markerData={marker} isLoading={isLoading} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />

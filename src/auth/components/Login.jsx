@@ -4,7 +4,7 @@ import {useForm} from '../../hooks/useFormUsers'
 export const Login = () => {
 
     const {handleChange, handleSubmit, error}= useForm('')
-    console.log(error)
+
     return (
         <>
             <section className="flex flex-col md:flex-row h-screen items-center">
@@ -54,7 +54,6 @@ export const Login = () => {
                 </div>
 
             </section>
-            <span className="loader"></span>
         </>
     )
 }

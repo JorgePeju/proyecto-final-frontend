@@ -3,7 +3,6 @@ import { consultation } from '../api/fetch';
 export const getMarker = async (url) => {
 
     const request = await consultation(url);
- 
     const marker = request.data.map((item) => ({
 
         id: item._id,

@@ -25,7 +25,7 @@ export const Markers = ({ markerMongo, markerData, isLoading }) => {
         <Marker key={1} position={markerData.position} icon={markerData.icon} />
       )}
       {isLoading ? (
-        <span className="loader"></span>
+        <p>Cargando</p>
       ) : (
         <>
           {filteredMarkers.map((marker, index) => {
@@ -40,12 +40,11 @@ export const Markers = ({ markerMongo, markerData, isLoading }) => {
                   </div>
                 </Popup>
               </Marker>
-            );
-          })}
+          )})}
         </>
       )}
     </>
-  );
+  )
 }
 
 

@@ -4,6 +4,7 @@ import {useDeleteEntry} from '../../hooks'
 export const Users = ({markerMongo, isLoading, refreshUsers}) => {
 
   const navigateTo = useNavigate()
+  
   return (
     <>
 

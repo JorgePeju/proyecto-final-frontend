@@ -11,10 +11,10 @@ export const useFetchMarkers = (entry) => {
 
     const consultMarkers = async () => {
 
-       setIsLoading(true);
+        setIsLoading(true);
         const markerMongo = await getMarker(url);
         setMarker(markerMongo);
-       setIsLoading(false);
+        setIsLoading(false);
        
     };
 

@@ -5,21 +5,21 @@ export const useFetchUsers = (entry) => {
    
     const [users, setUsers] = useState([]);
     const [refreshU, setRefreshUsers] = useState(false);
-   // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const url = getUrl(entry)
 
     const consultUsers = async () => {
 
-       // setIsLoading(true);
+        setIsLoading(true);
         const usersMongo = await getUsers(url);
         setUsers(usersMongo);
-       // setIsLoading(false);
+        setIsLoading(false);
        
     };
 
     const refreshUsers = () => {
         setRefreshUsers(!refreshU);
-      };
+    };
 
     useEffect(() => {
         consultUsers();
@@ -28,7 +28,7 @@ export const useFetchUsers = (entry) => {
 
     return {
         users,
-       // isLoading,
+       isLoading,
        refreshUsers
     };
 };

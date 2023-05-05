@@ -21,18 +21,16 @@ export const useForm = (estadoInicial) => {
                 email: ev.target.email.value,
                 password: ev.target.password.value
             }
-
             const method = 'POST'
-            const url = getUrl('auth', 'login')
-
-            console.log(body, method, url)
+            const url = getUrl('auth', 'login')      
             const request = await consultation(url, method, body)
             const userMongo = request.user
             const token = request.token
-            console.log(request)
+      
             if (request.ok === true) {
                 setUser(userMongo)
                 navigateTo('/')
+
             }else {
              
                 if(request.error === 'auth/weak-password'){
@@ -41,8 +39,7 @@ export const useForm = (estadoInicial) => {
                     setError('Correo incorrecto')
                 } else if (request.error){
                     setError('Email o contraseña incorrecto')
-                }  
-               
+                }   
             }
 
         } else {
@@ -53,7 +50,6 @@ export const useForm = (estadoInicial) => {
                 password: ev.target.password.value,
                 date: new Date()
             }
-
             const method = 'POST'
             const url = getUrl('auth', 'register')
             const request = await consultation(url, method, body)
@@ -95,5 +91,4 @@ export const useForm = (estadoInicial) => {
         handleSubmit,
         error
     }
-
 }

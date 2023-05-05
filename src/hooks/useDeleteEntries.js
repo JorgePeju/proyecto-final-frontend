@@ -8,11 +8,11 @@ export const useDeleteEntry = async (id, entry, refresh) => {
   const url = getUrl(entry,id);
 
   try {
+
     const request = await consultation(url, method);
-    
+
     if (request.ok === true) {
     refresh();
-   
   }
  
   } catch (error) {

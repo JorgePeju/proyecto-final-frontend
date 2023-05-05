@@ -13,6 +13,5 @@ export const MarkerProvider = ({ children }) => {
             
         </MarkerContext.Provider>
 
-    );
-
+    )
 };

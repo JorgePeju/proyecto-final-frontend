@@ -15,8 +15,7 @@ export const consultation = async (url, method, body = {}) => {
         body: JSON.stringify(data),
         headers: {
           "Content-type": "application/json",
-        },
-      };
+        }};
     }
 
     if (method === "DELETE") {
@@ -30,9 +29,7 @@ export const consultation = async (url, method, body = {}) => {
       return request.json();
 
     } else {
-
       throw new Error('Error al conectar con la api');
-      
     }
 
   } catch (error) {

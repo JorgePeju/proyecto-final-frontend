@@ -7,7 +7,6 @@ export const AppRouter = () => {
 
     return (
 
-
         <UserProvider>
             <AuthProvider>
 

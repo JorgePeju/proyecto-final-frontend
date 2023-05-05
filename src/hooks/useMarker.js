@@ -33,8 +33,5 @@ export const useMarker = (userId) => {
 };
 
 
-//* URL TORRE
-// https://objmap.zeldamods.org/icons/mapicon_tower.svg
-
 
 

@@ -30,7 +30,6 @@ export const useFormModal = (refreshMarkers) => {
             description: e.target.description.value,
             iconType: e.target.iconType.value,
         };
-
         const body = formMarker;
         const method = 'POST'
         const url = 'http://localhost:3000/api/v1/entries'

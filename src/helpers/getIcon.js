@@ -2,7 +2,6 @@
 
 export const getIcon = (icon) => {
 
-
     let url = '';
 
     switch (icon) {
@@ -21,7 +20,6 @@ export const getIcon = (icon) => {
             throw new Error('Variable de entorno no definida');
     }
 
-    
     return url;
 
 }

@@ -3,7 +3,6 @@ import { consultation } from '../api/fetch';
 export const getUsers = async (url) => {
     
     const request = await consultation(url);
-
     const users = request.data.map((item) => ({
 
         id: item._id,
