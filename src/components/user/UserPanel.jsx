@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Login, Register } from "../../auth/components";
-
-
+import { Login, Register } from "../auth";
 
 export const UserPanel = ({rightPanel, setRightPanel}) => {
 
@@ -10,7 +8,6 @@ export const UserPanel = ({rightPanel, setRightPanel}) => {
   const handleToggle = () => {
     setShowLogin(!showLogin);
   };
-
 
     return (
 
@@ -21,13 +18,13 @@ export const UserPanel = ({rightPanel, setRightPanel}) => {
               className="bg-blue-500 text-white px-4 py-2 rounded mb-4 mx-2.5 my-2.5"
               onClick={() => setRightPanel(false)}
             >
-              Ocultar panel derecho
+              Cerrar
             </button>
-           {showLogin ? (
+           {showLogin ? 
             <Login handleToggle={handleToggle} />
-          ) : (
+          : 
             <Register handleToggle={handleToggle} />
-          )}
+          }
           </div>
         }
   
@@ -36,7 +33,7 @@ export const UserPanel = ({rightPanel, setRightPanel}) => {
             className="bg-blue-500 text-white px-4 py-2 rounded mx-2.5 my-2.5"
             onClick={() => setRightPanel(true)}
           >
-            Mostrar panel derecho
+            Abrir
           </button>
         }
       </div>

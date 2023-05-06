@@ -1,9 +1,11 @@
-
+import { useContext } from 'react'
+import {ErrorContetx} from '../../context'
 import { useForm } from '../../hooks/useFormUsers';
 
 export const Register = ({ handleToggle }) => {
 
-    const { handleChange, handleSubmit, error } = useForm('')
+    const { handleChange, handleSubmit } = useForm('')
+    const {error} = useContext(ErrorContetx)
 
     return (
         <>

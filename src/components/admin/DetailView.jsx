@@ -1,10 +1,13 @@
-
+import {AdminFormEntry} from './'
 
 export const DetailView = () => {
 
   return (
 
-    <>DetailView</>
+    <>
+    <AdminFormEntry/>
+    
+    </>
 
     
   )

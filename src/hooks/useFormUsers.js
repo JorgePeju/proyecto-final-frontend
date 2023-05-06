@@ -1,8 +1,9 @@
 import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import { consultation } from '../api/fetch';
-import { UserContext } from '../context/UserContext'
+import { UserContext, ErrorContetx } from '../context'
 import { getUrl } from "../helpers/getUrl";
+
 
 /**
  * Funcionalidad para manejar un formulario login y registro.
@@ -13,9 +14,10 @@ import { getUrl } from "../helpers/getUrl";
 export const useForm = (estadoInicial) => {
 
     const [formulario, setFormulario] = useState(estadoInicial);
-    const [error, setError] = useState()
-    const navigateTo = useNavigate()
+    const { setError } = useContext(ErrorContetx)
     const { setUser } = useContext(UserContext);
+    const navigateTo = useNavigate()
+    
     
     const handleSubmit = async (ev) => {
 
@@ -94,7 +96,6 @@ export const useForm = (estadoInicial) => {
 
     return {
         handleChange,
-        handleSubmit,
-        error
+        handleSubmit
     }
 }

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, LoginPage } from '../pages'
-import { UserProvider, AuthProvider} from '../context'
+import { HomePage } from '../pages'
+import { UserProvider, AuthProvider, ErrorProvider } from '../context'
 import { AdminRouters } from './AdminRouters'
 
 export const AppRouter = () => {
@@ -9,13 +9,13 @@ export const AppRouter = () => {
 
         <UserProvider>
             <AuthProvider>
+                <ErrorProvider>
+                    <Routes>
+                        <Route path='/*' element={<HomePage />} />
+                        <Route path='/admin/*' element={<AdminRouters />} />
 
-                <Routes>
-                    <Route path='/*' element={<HomePage />} />
-                    <Route path='/admin/*' element={<AdminRouters />} />
-                    <Route path='/auth/*' element={<LoginPage />} />
-                </Routes>
-
+                    </Routes>
+                </ErrorProvider>
             </AuthProvider>
         </UserProvider>
 

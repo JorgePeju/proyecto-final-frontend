@@ -1,9 +1,12 @@
-
+import { useContext } from 'react'
+import {ErrorContetx} from '../../context'
 import {useForm} from '../../hooks/useFormUsers'
+
 
 export const Login = ({handleToggle}) => {
 
-    const {handleChange, handleSubmit, error} = useForm('')
+    const {handleChange, handleSubmit} = useForm('')
+    const {error} = useContext(ErrorContetx)
 
     return (
         <div className="w-full h-full flex items-center justify-end">
