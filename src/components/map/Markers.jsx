@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { getIcon } from '../../helpers'
 
 export const Markers = ({ markerMongo, markerData }) => {
-
+ 
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
 
