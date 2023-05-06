@@ -13,7 +13,7 @@ export const FilterPanel = ({leftPanel,setLeftPanel }) => {
           Ocultar panel izquierdo
         </button>
         <div>
-          <p>COSITAS</p>
+        
         </div>
       </div>
     }
