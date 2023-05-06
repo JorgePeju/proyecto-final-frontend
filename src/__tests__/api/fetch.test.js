@@ -4,7 +4,8 @@ describe('consultation', () => {
 
   jest.setTimeout(10000);
 
-  test('Se espera un mensaje y un ok y un array llamado data', async () => {
+  test('Se espera un booleano true al recibir los datos', async () => {
+
     const url = 'http://localhost:3000/api/v1/entries';
   
     const request = await consultation(url, 'GET');

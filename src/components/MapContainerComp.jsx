@@ -1,6 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import { useContext, useEffect} from "react";
-import { MapContainer } from "react-leaflet";
+import { MapContainer, ZoomControl } from "react-leaflet";
 import { MapImage, Markers, MarkerForm } from "./map";
 import { useMarker, useFetchMarkers, useFormModal } from "../hooks";
 import { UserContext, MarkerContext } from '../context'
@@ -37,10 +37,11 @@ export const MapContainerComp = () => {
   return (
     <>
     
-    <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} >
+    <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} zoomControl={false} attributionControl={false}>
     <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
       <Markers markerMongo={markers} markerData={marker} isLoading={isLoading} />
       <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
+      <ZoomControl position="bottomright" zoomInTitle="Aumentar" zoomOutTitle="Alejar"/>
     </MapContainer>
    
     </>

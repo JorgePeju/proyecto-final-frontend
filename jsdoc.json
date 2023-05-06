@@ -1,13 +1,13 @@
 {
     "source": {
-        "includePattern": ".+\\.js(doc|x)?$",
-        "include": ["./src"],
-        "exclude": ["node_modules/|docs"]
+        "includePattern": ".+\\.js(doc|x)?$",   
+        "include": ["./src"],                        
+        "exclude": ["node_modules/|docs"]              
     },
     "plugins": [],
-    "recurseDepth": 10,
+    "recurseDepth": 10,                         
     "opts": {
-        "destination": "./docs/",
-        "recurse": true
-    }
+        "destination": "./docs/",          
+        "recurse": true   
+    }                       
 }

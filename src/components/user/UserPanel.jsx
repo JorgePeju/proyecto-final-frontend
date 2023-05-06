@@ -1,21 +1,35 @@
-import { Link } from 'react-router-dom'
 
 
-export const UserPanel = () => {
+
+export const UserPanel = ({rightPanelVisible, setRightPanelVisible}) => {
+
 
     return (
 
-        <>
-            <div className="user-panel-container z-1k1">
-                <p>Elija una opción</p>
 
-                <p className="mt-8">¿Aún no tienes una cuenta? <Link to='/auth/register' className="text-blue-500 hover:text-blue-700 font-semibold">Crea tu cuenta aquí</Link></p>
-                <p className="mt-8"><Link to='/auth/login' className="text-blue-500 hover:text-blue-700 font-semibold">¿Ya tienes una cuenta?</Link></p>
-    
-
+        <div className="absolute z-1k1 top-0 right-0 z-10">
+        {rightPanelVisible && (
+          <div className="bg-emerald-500 p-4 ">
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded mb-4 "
+              onClick={() => setRightPanelVisible(false)}
+            >
+              Ocultar panel derecho
+            </button>
+            <div>
+              <p>Cositas</p>
             </div>
-        </>
-
-
-    )
-}
+          </div>
+        )}
+  
+        {!rightPanelVisible && (
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded mx-2.5 my-2.5"
+            onClick={() => setRightPanelVisible(true)}
+          >
+            Mostrar panel derecho
+          </button>
+        )}
+      </div>
+    );
+  };

@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
 import { MarkerContext } from '../context'
+import {getUrl} from '../helpers'
 
 /**
  * Proporciona la funcionalidad para manejar el formulario que se muestra al generar el marcador.
@@ -11,7 +12,7 @@ import { MarkerContext } from '../context'
 export const useFormModal = (refreshMarkers) => {
 
     const [showModal, setShowModal] = useState(false);
-    const [formulario, setFormulario] = useState('');
+    const [formulario, setFormulario] = useState({title: '', description: ''});
     const { marker, setMarker } = useContext(MarkerContext);
 
     const handleChange = ({ target }) => {
@@ -36,12 +37,14 @@ export const useFormModal = (refreshMarkers) => {
             description: e.target.description.value,
             iconType: e.target.iconType.value,
         };
+
         const body = formMarker;
         const method = 'POST'
-        const url = 'http://localhost:3000/api/v1/entries'
+        const url = getUrl('entries')
         const request = await consultation(url, method, body)
        
         if (request.ok === true) {
+            resetForm();
             setMarker('');
             refreshMarkers();
             closeModal();  
