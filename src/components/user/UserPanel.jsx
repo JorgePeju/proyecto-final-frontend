@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Login, Register } from "../auth";
+import { UserContext } from "../../context";
 
 export const UserPanel = ({rightPanel, setRightPanel}) => {
 
   const [showLogin, setShowLogin] = useState(true);
+  const { user } = useContext(UserContext);
 
   const handleToggle = () => {
     setShowLogin(!showLogin);
@@ -20,11 +22,11 @@ export const UserPanel = ({rightPanel, setRightPanel}) => {
             >
               Cerrar
             </button>
-           {showLogin ? 
+           {!user && (showLogin ? 
             <Login handleToggle={handleToggle} />
           : 
             <Register handleToggle={handleToggle} />
-          }
+          )}
           </div>
         }
   

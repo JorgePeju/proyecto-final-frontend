@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
-import { MarkerContext } from '../context'
-import {getUrl} from '../helpers'
+import { MarkerContext, ErrorContetx } from '../context'
+import { getUrl } from '../helpers'
 
 /**
  * Proporciona la funcionalidad para manejar el formulario que se muestra al generar el marcador.
@@ -14,6 +14,7 @@ export const useFormModal = (refreshMarkers) => {
     const [showModal, setShowModal] = useState(false);
     const [formulario, setFormulario] = useState({title: '', description: ''});
     const { marker, setMarker } = useContext(MarkerContext);
+    const { setError } = useContext(ErrorContetx)
 
     const handleChange = ({ target }) => {
 
@@ -48,6 +49,9 @@ export const useFormModal = (refreshMarkers) => {
             setMarker('');
             refreshMarkers();
             closeModal();  
+        } else {
+            
+            setError(request.errors)
         }
     };
 

@@ -41,7 +41,7 @@ export const useFormAdmin = (id, refreshMarkers) => {
         const url = getUrl('entries', id)
      
         const request = await consultation(url, method, body)
-        console.log(request)
+      
         if (request.ok === true) {
             refreshMarkers()
             navigateTo('/admin/entries')

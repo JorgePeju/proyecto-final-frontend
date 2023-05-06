@@ -1,14 +1,20 @@
 import { useContext } from 'react';
-import { MarkerContext } from '../../context';
+import { ErrorContetx, MarkerContext } from '../../context';
 
 export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal }) => {
 
   const { setMarker } = useContext(MarkerContext);
+  const {error} = useContext(ErrorContetx);
 
   const handleCloseModal = () => {
     closeModal();
     setMarker(null);
   };
+  
+  const findError = (fieldName) => {
+    const fieldError = error?.find(err => err.path === fieldName);
+    return fieldError ? fieldError.msg : null;
+  }
 
   return (
     <div className={`${showModal ? "fixed z-1k1 inset-0 overflow-y-auto" : "hidden"}`}>
@@ -29,12 +35,14 @@ export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal }
                 Título:
               </label>
               <input type="text" id="title" name="title" onChange={handleChange} className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+              {findError('title') && <p className="text-xs text-red-500 mt-1">{findError('title')}</p>}
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
                 Descripción:
               </label>
               <textarea id="description" name="description" onChange={handleChange} className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" rows="3"/>
+              {findError('description') && <p className="text-xs text-red-500 mt-1">{findError('description')}</p>}
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
