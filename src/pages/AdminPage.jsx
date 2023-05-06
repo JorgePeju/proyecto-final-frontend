@@ -22,7 +22,7 @@ export const AdminPage = () => {
       <Routes>
         <Route path='/entries' element={<Entry markerMongo={markers} isLoading={isLoading} refreshMarkers={refreshMarkers} />} />
         <Route path='/users' element={<Users markerMongo={users} isLoading={isLoading} refreshUsers={refreshUsers} />} />
-        <Route path='/entries/:id' element={<DetailView/>} />
+        <Route path='/entries/:id' element={<DetailView markerMongo={markers} refreshMarkers={refreshMarkers}/>} />
       </Routes>
 
     </>

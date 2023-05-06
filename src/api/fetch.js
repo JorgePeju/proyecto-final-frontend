@@ -8,7 +8,6 @@
  * @throws {Error} - Lanza un error si hay problemas al conectar con la API.
  */
 export const consultation = async (url, method, body = {}) => {
-
   let options = {};
 
   const data = { ...body };
@@ -18,31 +17,30 @@ export const consultation = async (url, method, body = {}) => {
     if (method === "POST" || method === "PUT") {
       
       options = {
-        method: method,
-        mode: 'cors',
-        cache: 'force-cache',
+        method,
         body: JSON.stringify(data),
         headers: {
           "Content-type": "application/json",
-        }};
-    }
-
+        },
+      };
+    } 
+    
     if (method === "DELETE") {
-      options = { method };
-    }
 
+      options = { method };
+
+    }
+   
     const request = await fetch(url, options);
 
-    if (request){
-
+    if (request) {
       return request.json();
-
     } else {
-      throw new Error('Error al conectar con la api');
+      throw new Error("Error al conectar con la api");
     }
-
   } catch (error) {
     throw new Error(`Error al conectar con la API: ${error.message}`);
   }
 };
+
 

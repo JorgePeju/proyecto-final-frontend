@@ -8,17 +8,17 @@ import { getUrl } from "../helpers";
  * @param {string} entry - Información para obtener la URL.
  * @returns {Object} - Objeto con los marcadores, estado de cargando y función para actualizar los marcadores.
  */
-export const useFetchMarkers = (entry) => {
+export const useFetchMarkers = (entry, id) => {
 
     const [markers, setMarker] = useState([]);
     const [refresh, setRefresh] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const url = getUrl(entry)
-
+    const url = getUrl(entry, id)
+ 
     const consultMarkers = async () => {
 
         setIsLoading(true);
-        const markerMongo = await getMarker(url);
+        const markerMongo = await getMarker(url, id);
         setMarker(markerMongo);
         setIsLoading(false);
 

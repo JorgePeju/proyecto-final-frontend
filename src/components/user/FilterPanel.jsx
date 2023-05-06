@@ -5,7 +5,7 @@ export const FilterPanel = ({leftPanel,setLeftPanel }) => {
 
     <div className="absolute z-1k1 left-0 z-10">
     {leftPanel && 
-      <div className="h-screen w bg-teal-700 p-4 md:w-80">
+      <div className="h-screen  bg-teal-700 p-4 md:w-80">
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
           onClick={() => setLeftPanel(false)}
