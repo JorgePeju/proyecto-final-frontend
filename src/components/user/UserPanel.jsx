@@ -1,18 +1,16 @@
 
 
 
-export const UserPanel = ({rightPanelVisible, setRightPanelVisible}) => {
-
+export const UserPanel = ({rightPanel, setRightPanel}) => {
 
     return (
 
-
         <div className="absolute z-1k1 top-0 right-0 z-10">
-        {rightPanelVisible && (
+        {rightPanel && 
           <div className="bg-emerald-500 p-4 ">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded mb-4 "
-              onClick={() => setRightPanelVisible(false)}
+              onClick={() => setRightPanel(false)}
             >
               Ocultar panel derecho
             </button>
@@ -20,16 +18,16 @@ export const UserPanel = ({rightPanelVisible, setRightPanelVisible}) => {
               <p>Cositas</p>
             </div>
           </div>
-        )}
+        }
   
-        {!rightPanelVisible && (
+        {!rightPanel && 
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded mx-2.5 my-2.5"
-            onClick={() => setRightPanelVisible(true)}
+            onClick={() => setRightPanel(true)}
           >
             Mostrar panel derecho
           </button>
-        )}
+        }
       </div>
     );
   };

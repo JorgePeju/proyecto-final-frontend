@@ -5,18 +5,18 @@ import { MarkerProvider } from '../context/MarkerProvider';
 
 export const HomePage = () => {
   
-  const [leftPanelVisible, setLeftPanelVisible] = useState(true);
-  const [rightPanelVisible, setRightPanelVisible] = useState(true);
+  const [leftPanel, setLeftPanel] = useState(true);
+  const [rightPanel, setRightPanel] = useState(true);
 
 
   return (
 
     <MarkerProvider>
-      <FilterPanel leftPanelVisible={leftPanelVisible} setLeftPanelVisible={setLeftPanelVisible} />
-      <UserPanel rightPanelVisible={rightPanelVisible} setRightPanelVisible={setRightPanelVisible}/>
+      <FilterPanel leftPanel={leftPanel} setLeftPanel={setLeftPanel} />
+      <UserPanel rightPanel={rightPanel} setRightPanel={setRightPanel}/>
       <MapContainerComp />
     </MarkerProvider>
-    
+
   );
 };
 
