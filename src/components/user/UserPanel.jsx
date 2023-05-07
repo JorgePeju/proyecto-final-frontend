@@ -51,6 +51,14 @@ export const UserPanel = ({ rightPanel, setRightPanel }) => {
           </div>
         </div>
       )}
+      {!rightPanel &&
+        <button
+        className="bg-zbgcosa text-white px-4 py-2 rounded mx-2.5 my-2.5"
+          onClick={() => setRightPanel(true)}
+        >
+          Abrir
+        </button>
+      }
 
     </div>
   );
