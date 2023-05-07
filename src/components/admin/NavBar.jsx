@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import {useLogout} from '../../hooks'
 
 export const NavBar = () => {
+
+
+  const {handleLogout}= useLogout()
   return (
     <>
       <nav className="bg-gray-100 p-4 px-8 shadow-md">
@@ -28,7 +32,7 @@ export const NavBar = () => {
             </ul>
             <div className="">
 
-            <NavLink to="#" className="text-gray-700 font-medium hover:text-blue-500"> Logout </NavLink>
+            <button onClick={handleLogout} className="text-gray-700 font-medium hover:text-blue-500"> Logout </button>
             </div>
           </div>
         </div>

@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { UserContext } from '../../context'
 import { useLogout } from '../../hooks'
+import { Link } from "react-router-dom";
+
 
 export const LoggedUser = () => {
 
@@ -24,10 +26,12 @@ export const LoggedUser = () => {
             </button>
           </div>
 
-       { user.role !== "user" &&   <div className="text-white ">
-            <button onClick={handleLogout} type="submit" className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
-              Admin Panel
-            </button>
+          {user.role !== "user" && <div className="text-white ">
+            <Link to="/admin">
+              <button type="submit" className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
+                Admin Panel
+              </button>
+            </Link>
           </div>}
         </div>
       </section>

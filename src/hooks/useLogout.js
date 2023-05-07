@@ -2,10 +2,12 @@ import { useContext } from 'react';
 import { setLocal, getUrl } from '../helpers'
 import { consultation } from '../api/fetch'
 import { UserContext } from '../context';
+import { useNavigate } from 'react-router-dom'
 
 export const useLogout = () => {
 
-    const { setUser} = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
+    const navigateTo = useNavigate()
 
     const handleLogout = async () => {
 
@@ -14,7 +16,7 @@ export const useLogout = () => {
         const response = await consultation(url);
 
         if (response.ok) {
-
+            navigateTo('/')
             setLocal(null);
             setUser(null);
 

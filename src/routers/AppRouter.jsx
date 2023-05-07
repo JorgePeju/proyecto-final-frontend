@@ -5,6 +5,7 @@ import { ErrorProvider, MarkerProvider, UserContext } from '../context'
 import { AdminRouters } from './AdminRouters'
 import { getLocal } from '../helpers'
 import { ProtectedRoute } from '../components/auth'
+import { UserRouters } from './UserRouters'
 
 export const AppRouter = () => {
 
@@ -33,7 +34,7 @@ export const AppRouter = () => {
                     <Routes>
 
                         <Route path='/*' element={<HomePage />} />
-
+                        <Route path='/user/*' element={<UserRouters />} />
                         <Route path='/admin/*' element={
 
                             <ProtectedRoute>
