@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import {UserContext} from '../../context'
-import {useLogout} from '../../hooks'
+import { UserContext } from '../../context'
+import { useLogout } from '../../hooks'
 
 export const LoggedUser = () => {
 

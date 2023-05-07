@@ -7,19 +7,23 @@
  */
 export const getUrl = (entry, id) => {
 
-    let url = ''
- 
-    if(!id) {
+   let url = ''
 
-       url = `${import.meta.env.VITE_URL_BASE_API}/${entry}`
-       return url
+   if (entry === 'search') {
 
-    } else {
+      url = `${import.meta.env.VITE_URL_BASE_API}/entries/?search=${id}`
 
-       url = `${import.meta.env.VITE_URL_BASE_API}/${entry}/${id}`
-       return url
-    }
-    
-    
+   } else if (!id) {
+
+      url = `${import.meta.env.VITE_URL_BASE_API}/${entry}`
+      return url
+
+   } else {
+
+      url = `${import.meta.env.VITE_URL_BASE_API}/${entry}/${id}`
+      return url
+   }
+
+
 
 }

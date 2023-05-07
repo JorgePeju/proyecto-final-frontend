@@ -11,13 +11,18 @@ export const FilterPanel = ({ leftPanel, setLeftPanel }) => {
             </div>
             <div className="items-center ">
               <div className="text-white ">
-              <button type="submit" className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
+              <button type="submit" onClick={() => handleButtonClick('Tower')} className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
                 Torres
                 </button>
               </div>
               <div className="text-white ">
-              <button type="submit" className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
+              <button type="submit" onClick={() => handleButtonClick('Dungeon')} className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
                 Santuarios
+                </button>
+              </div>
+              <div className="text-white ">
+              <button type="submit" onClick={() => handleButtonClick('')} className="w-full my-4 block bg-zyellow hover:bg-zbgcosa text-white font-semibold rounded-lg px-4 py-2">
+                Quitar Filtros
                 </button>
               </div>
             </div>
