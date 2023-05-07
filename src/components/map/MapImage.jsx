@@ -8,19 +8,20 @@ export const MapImage = ({ bounds, onCoordinatesChange }) => {
   const [imageUrl, setImageUrl] = useState('');
   const imageRef = ref(storage, 'Mapitshjpeg.jpg');
 
-  const loadImage = async () => {
-    const url = await getDownloadURL(imageRef);
-    setImageUrl(url);
-  };
-
-  useEffect(() => {
-    loadImage();
-  }, []);
+  // const loadImage = async () => {
+  //   // const url = await getDownloadURL(imageRef);
+  //   const url = "src\assets\Mapitshjpeg.jpg";
+  //   setImageUrl(url);
+  // };
+  const url = "src/assets/Mapitshjpeg.jpg"
+  // useEffect(() => {
+  //   loadImage();
+  // }, []);
 
   return (
     <>
       <MapClickHandler onCoordinatesChange={onCoordinatesChange} />
-      <ImageOverlay url={imageUrl} bounds={bounds} />
+      <ImageOverlay url={url} bounds={bounds} />
     </>
   );
 };

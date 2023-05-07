@@ -9,8 +9,8 @@ export const Login = ({handleToggle}) => {
     const {error} = useContext(ErrorContetx)
 
     return (
-        <div className="w-full h-full flex items-center justify-end">
-            <div className="bg-white w-full max-w-md h-full px-6 py-8">
+        <div className="w-80 h- flex items-center justify-end">
+            <div className="bg-teal-800 w-full max-w-md h-full px-6 py-8">
                 <h1 className="text-lg font-bold leading-tight mb-4">Entra con tu cuenta</h1>
 
                 <form className="space-y-4" onSubmit={handleSubmit}>

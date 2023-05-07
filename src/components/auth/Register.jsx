@@ -10,13 +10,13 @@ export const Register = ({ handleToggle }) => {
     return (
         <>
             <div className="w-full h-full flex items-center justify-end">
-                <div className="bg-white w-full max-w-md h-full px-6 py-8">
+                <div className="bg-teal-800 w-80 max-w-md h-full px-6 py-8">
                     <h1 className="text-lg font-bold leading-tight mb-4">Regístrate</h1>
 
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <div>
                             <label className="block text-gray-700 text-sm">Nombre de usuario</label>
-                            <input type="text" name="email" id="email" placeholder="Introduce tu nombre" className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm" autoFocus
+                            <input type="text" name="username" id="username" placeholder="Introduce tu nombre" className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm" autoFocus
                                 onChange={handleChange} />
                         </div>
                         <div>

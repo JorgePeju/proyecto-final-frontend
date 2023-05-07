@@ -20,7 +20,7 @@ export const MapContainerComp = () => {
   const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {
-     if (!user?._id || showModal === true) return
+    if (!user?._id || showModal === true) return
     addMarker(coordinates);
   };
 

@@ -22,7 +22,7 @@ export const useForm = (estadoInicial) => {
     const handleSubmit = async (ev) => {
 
         ev.preventDefault()
-
+        
         if (!ev.target.username) {
 
             const body = {
@@ -51,7 +51,7 @@ export const useForm = (estadoInicial) => {
             }
 
         } else {
-
+            
             const body = {
                 username: ev.target.username.value,
                 email: ev.target.email.value,

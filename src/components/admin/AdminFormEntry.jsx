@@ -14,7 +14,7 @@ export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
   
   return (
     <>
-      <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-backgroundZelda shadow-xl rounded-2xl" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <p className="text-sm font-medium text-gray-700 my-2">
