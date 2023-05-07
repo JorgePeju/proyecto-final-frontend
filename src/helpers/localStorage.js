@@ -1,14 +1,19 @@
-export const setLocal = (user) => {
+export const setLocal = (userLocal, token) => {
 
-  localStorage.setItem('', JSON.stringify());
-  
+  localStorage.setItem("userLocal", JSON.stringify(userLocal));
+  localStorage.setItem("token", token);
+
 };
-  
+
 export const getLocal = () => {
-  
-  return JSON.parse(localStorage.getItem('')) || [];
-  
+
+  const userLocal = JSON.parse(localStorage.getItem("userLocal")) || null;
+  const token = localStorage.getItem("token") || null;
+
+  return { userLocal, token };
+
 };
 
 
-const [user, dispatch] = useReducer(userReducer, [], getLocal)
+
+// const [user, dispatch] = useReducer(userReducer, [], getLocal)

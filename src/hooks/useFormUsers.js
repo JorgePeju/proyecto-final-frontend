@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import { consultation } from '../api/fetch';
 import { UserContext, ErrorContetx } from '../context'
-import { getUrl } from "../helpers/getUrl";
+import { getUrl, setLocal } from "../helpers";
 
 
 /**
@@ -14,8 +14,8 @@ import { getUrl } from "../helpers/getUrl";
 export const useForm = (estadoInicial) => {
 
     const [formulario, setFormulario] = useState(estadoInicial);
-    const { setError } = useContext(ErrorContetx)
     const { setUser } = useContext(UserContext);
+    const { setError } = useContext(ErrorContetx)
     const navigateTo = useNavigate()
     
     
@@ -36,7 +36,9 @@ export const useForm = (estadoInicial) => {
             const token = request.token
       
             if (request.ok === true) {
+                
                 setUser(userMongo)
+                setLocal(userMongo, token)
                 navigateTo('/')
 
             }else {
@@ -67,6 +69,7 @@ export const useForm = (estadoInicial) => {
             if (request.ok === true) {
 
                 setUser(userMongo)
+                setLocal(userMongo, token)
                 navigateTo('/')
                 
             }else {

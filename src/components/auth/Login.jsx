@@ -9,7 +9,7 @@ export const Login = ({handleToggle}) => {
     const {error} = useContext(ErrorContetx)
 
     return (
-        <div className="w-80 h- flex items-center justify-end">
+        <div className="w-80 flex items-center justify-end">
             <div className="bg-backgroundZelda w-full max-w-md h-full px-6 py-8">
                 <h1 className="text-zyellow font-bold leading-tight mb-4">Entra con tu cuenta</h1>
 

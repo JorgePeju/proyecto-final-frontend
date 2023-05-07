@@ -1,15 +1,20 @@
+import { UserProvider } from "./context"
 import { AppRouter } from "./routers/AppRouter"
 
 
 
 function App() {
- 
+
   return (
 
     <>
-      <AppRouter/> 
+      <UserProvider>
+
+        <AppRouter />
+
+      </UserProvider>
     </>
-    
+
   )
 }
 
