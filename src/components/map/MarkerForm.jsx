@@ -10,7 +10,7 @@ export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal }
     closeModal();
     setMarker(null);
   };
-  
+
   const findError = (fieldName) => {
     const fieldError = error?.find(err => err.path === fieldName);
     return fieldError ? fieldError.msg : null;

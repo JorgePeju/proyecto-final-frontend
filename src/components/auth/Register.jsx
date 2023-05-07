@@ -1,11 +1,8 @@
-import { useContext } from 'react'
-import {ErrorContetx} from '../../context'
 import { useForm } from '../../hooks/useFormUsers';
 
 export const Register = ({ handleToggle }) => {
 
-    const { handleChange, handleSubmit } = useForm('')
-    const {error} = useContext(ErrorContetx)
+    const { handleChange, handleSubmit, error } = useForm('')
 
     return (
         <>
@@ -30,7 +27,10 @@ export const Register = ({ handleToggle }) => {
                             <input type="password" name="password" id="password" placeholder="Contraseña" className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm"
                                 onChange={handleChange} />
                         </div>
-                        {error && <p>{error}</p>}
+                        {error &&
+                        <p className="mt-8 text-red-600">
+                            {error}
+                        </p>}
                         <button type="submit" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-2">Regístrate</button>
                     </form>
 
