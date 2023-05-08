@@ -14,20 +14,18 @@ export const NavBar = () => {
             <ul className="flex space-x-4">
 
               <li>
-                <NavLink to="/" className="text-zbgbrown font-medium hover:white">
+                <NavLink to="/" className="text-zyellow font-medium hover:white">
                   Zona usuario </NavLink>
               </li>
               
               <li>
-                <NavLink to="/user/" className="text-zyellow font-medium hover:text-white"
-                >
+                <NavLink to="/admin/entries" className="text-zyellow font-medium hover:text-white">
                   Gestionar Marcadores </NavLink>
               </li>
 
               <li>
-                <NavLink to="/user/entries" className="text-zyellow font-medium hover:text-white"
-                >
-                  Gestionar Marcadores </NavLink>
+              <NavLink to="/admin/users" className="text-zyellow font-medium hover:text-white">
+                  Gestionar Usuarios </NavLink>
               </li>
             
             </ul>

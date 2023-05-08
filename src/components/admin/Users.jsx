@@ -1,59 +1,99 @@
-import { useNavigate } from 'react-router-dom'
-import {useDeleteEntry} from '../../hooks'
 
-export const Users = ({markerMongo, refreshUsers}) => {
+import { consultation } from '../../api/fetch';
+import { getUrl } from '../../helpers';
+import { useDeleteEntry } from '../../hooks'
 
-  const navigateTo = useNavigate()
-  
+export const Users = ({ markerMongo, refreshUsers }) => {
+
+  {console.log(markerMongo)}
+
+  const handleRoleChange = async (e, userId) => {
+    const newRole = e.target.value;
+
+    try {
+
+      const updatedUser = {
+        role: newRole,
+      };
+
+      const url = getUrl("users", userId);
+      const method = "PUT";
+      const body = updatedUser;
+
+      const response = await consultation(url, method, body);
+
+      if (!response.ok) {
+        throw new Error("Error al actualizar el rol del usuario");
+      }
+
+      refreshUsers();
+    } catch (error) {
+      console.error("Error al actualizar el rol del usuario:", error);
+    }
+  };
+
   return (
     <>
 
-    <p></p>
-      <div className="p-5 h-screen bg-gray-100 hidden lg:block">
+
+      <div className="p-5 h-screen bg-zbgcosa hidden lg:block">
         <div className="overflow-auto rounded-lg shadow">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b-2 border-gray-200">
+            <thead className="bg-zbgTAP border-b-2 border-gray-200">
               <tr>
-                <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
-                  Nombre 
+                <th className="w-20 p-3 text-zbgbrown font-semibold tracking-wide text-left">
+                  Nombre
                 </th>
                 <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Fecha de registro
                 </th>
                 <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
-                  Email 
+                  Email
                 </th>
                 <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
-                 Rol
+                  Rol
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
-                  Editar
+                  Cambiar Rol
                 </th>
                 <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
-                  Borrar
+                  Borrar usuario
+                </th>
+                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                  Borrar todas las entradas
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {markerMongo.map((marker, index) => (
-
-                <tr key={index} className="bg-white">
-                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    <p className="font-bold text-blue-500 hover:underline">{marker.username}</p>
+                 
+                <tr key={index} className="bg-zbgTAP">
+                  <td className="p-3 text-sm text-zbgbrown whitespace-nowrap">
+                    <p className="font-bold text-zbgbrown hover:underline">{marker.username}</p>
                   </td>
-                  <td className="p-2 text-sm text-gray-700 whitespace-nowrap">
+                  <td className="p-2 text-sm text-zbgbrown whitespace-nowrap">
                     {marker.date.substring(0, 10)}
                   </td>
-                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.email}</td>
-                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{marker.role}</td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap"><button onClick={() => navigateTo(`/admin/users/${marker.id}`)}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                    Editar
-                  </button></td>
-                  <td className="p-1 text-sm text-gray-700 whitespace-nowrap">
-                    <button onClick={() => useDeleteEntry(marker.id, 'user', refreshUsers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
-                    Borrar
-                  </button></td>
+                  <td className="p-3 text-sm text-zbgbrown whitespace-nowrap">{marker.email}</td>
+                  <td className="p-3 text-sm text-zbgbrown whitespace-nowrap">{marker.role}</td>
+                  <td className="p-3">
+                    <select name="role" onChange={(e) => handleRoleChange(e, marker.id)} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm"
+                    >
+                      <option value="admin">Admin</option>
+                      <option value="moderator">Moderator</option>
+                      <option value="user">User</option>
+                    </select>
+                  </td>
+                  <td className="p-1 text-sm text-zbgbrown whitespace-nowrap">
+                    <button onClick={() => useDeleteEntry(marker.id, 'users', refreshUsers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                      Borrar usuario
+                    </button>
+                    </td>
+                    <td className="p-1 text-sm text-zbgbrown whitespace-nowrap">
+                    <button onClick={() => useDeleteEntry(marker.id, 'entries/users', refreshUsers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                      Borrar todas las entradas
+                    </button>
+                    </td>
                 </tr>
               ))}
             </tbody>
@@ -62,29 +102,33 @@ export const Users = ({markerMongo, refreshUsers}) => {
       </div>
 
 
-      <div className="p-5 h-screen bg-gray-100 lg:hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="p-5 h-screen bg-zbgcosa lg:hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {markerMongo.map((marker, index) => (
-            <div key={index} className="bg-white space-y-3 p-4 rounded-lg shadow">
+            <div key={index} className="bg-zbgTAP space-y-3 p-4 rounded-lg shadow">
               <div className="flex items-center space-x-2 text-sm">
                 <div>
-                  <p className="text-blue-500 font-bold hover:underline">
-                  {marker.userUsername}
+                  <p className="text-zbgbrown font-bold hover:underline">
+                    {marker.username}
                   </p>
                 </div>
-                <div className="text-gray-500">{marker.userEmail}</div>
-                <div className="text-sm font-medium text-black">{marker.userRole}</div>
+                <div className="text-zbgbrown">{marker.email}</div>
+                <div className="text-sm font-medium text-zbgbrown">{marker.role}</div>
               </div>
-              <div className="text-sm text-gray-700">
-              {marker.date.substring(0, 10)}
+              <div className="text-sm text-zbgbrown font-bold">
+                {marker.date.substring(0, 10)}
               </div>
               <div className="flex items-center space-x-2 text-sm">
-                <button onClick={() => navigateTo(`/admin/users/${marker.id}`)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
-                  Editar
+                <select name="role" onChange={(e) => handleRoleChange(e, marker.id)} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm">
+                  <option value="admin">Admin</option>
+                  <option value="moderator">Moderator</option>
+                  <option value="user">User</option>
+                </select>
+                <button onClick={() => useDeleteEntry(marker.id, 'users', refreshUsers)} className="bg-red-900 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                  Borrar usuarios
                 </button>
-                <button onClick={() => useDeleteEntry(marker.id, 'user', refreshUsers)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
-                  Borrar
+                <button onClick={() => useDeleteEntry(marker.id, 'entries/users', refreshUsers)} className="bg-red-900 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                  Borrar entradas
                 </button>
               </div>
             </div>

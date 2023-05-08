@@ -6,7 +6,7 @@ export const useDeleteEntry = async (id, entry, refresh) => {
   
   const method = 'DELETE';
   const url = getUrl(entry,id);
-
+  console.log(url)
   try {
     const request = await consultation(url, method);
     

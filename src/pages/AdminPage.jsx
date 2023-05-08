@@ -9,7 +9,7 @@ export const AdminPage = () => {
   return (
 
     <>
-      <header className="bg-backgroundZelda p-6 shadow-md">
+      <header className="bg-zbgbrown p-6 shadow-md">
         <div className="container mx-auto">
           <h1 className="text-2xl text-zyellow font-semibold">
             Panel de Administración

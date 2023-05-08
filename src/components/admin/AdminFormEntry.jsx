@@ -41,7 +41,7 @@ export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
             </div>
 
             <div>
-              <label className="block text-zyellow text-sm">Icono actual: {markers[0].iconType === "Dungeon" ? "Santuario" : "Torre"}</label>
+              <label className="block text-zyellow text-bold">Icono actual: {markers[0].iconType === "Dungeon" ? "Santuario" : "Torre"}</label>
               <select id="iconType" name="iconType" onChange={handleChange} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm">
               <option value="Dungeon">Santuario</option>
               <option value="Tower">Torre</option>
@@ -50,7 +50,7 @@ export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
             </div>
             {user.role !== 'user' &&
             <div>
-              <label className="block text-zyellow text-sm">Icono actual: {markers[0].iconType === "Dungeon" ? "Santuario" : "Torre"}</label>
+              <label className="block text-zyellow text-bold">Estado Actual: {markers[0].iconType === "true" ? "Activad" : "Inactivo"}</label>
               <select id="status" name="status" value={markers[0].iconType} onChange={handleChange} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm">
               <option value="true">Activado</option>
               <option value="false">Inactivo</option>
