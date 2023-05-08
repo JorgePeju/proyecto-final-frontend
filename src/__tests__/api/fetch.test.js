@@ -13,18 +13,18 @@ describe('consultation', () => {
     expect(request.data.length > 0).toBe(true);
   });
   
-  test('Se espera un mensaje y un ok al crear entradas', async () => {
+  test('Se espera un objeto errors al crear entradas', async () => {
 
     const url = 'http://localhost:3000/api/v1/entries';
     const body = { key: 'value' };
 
     const request = await consultation(url, 'POST', body);
 
-    expect(request).toHaveProperty('msg');
-    expect(request).toHaveProperty('ok');
+    expect(request.errors).toBeDefined();
+    expect(typeof request.errors).toEqual('object');
   });
 
-  test('Se espera un mensaje y un error editar entradas por ID', async () => {
+  test('Se espera un objeto errors al editar entradas por ID', async () => {
 
     const url = 'http://localhost:3000/api/v1/entries';
     const body = { key: 'valueToUpdate' };
@@ -35,9 +35,10 @@ describe('consultation', () => {
     const bodyTest = { key: 'updatedValue' };
     const requestTest = await consultation(urlTest, 'PUT', bodyTest);
 
-    expect(requestTest).toHaveProperty('msg');
-    expect(requestTest).toHaveProperty('ok');
+    expect(requestTest.errors).toBeDefined();
+    expect(typeof requestTest.errors).toEqual('object');
   });
+
 
   test('Se espera un mensaje y un ok usando DELETE', async () => {
  
