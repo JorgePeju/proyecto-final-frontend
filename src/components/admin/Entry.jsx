@@ -67,7 +67,8 @@ export const Entry = ({ markerMongo, isLoading, refreshMarkers }) => {
                   <td className="p-1 text-sm text-zbgbrown whitespace-nowrap">
                     <button onClick={() => useDeleteEntry(marker.id, 'entries', refreshMarkers)} className="bg-red-900 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
                     Borrar
-                  </button></td>
+                  </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

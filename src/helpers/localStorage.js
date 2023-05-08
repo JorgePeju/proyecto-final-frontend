@@ -14,6 +14,3 @@ export const getLocal = () => {
 
 };
 
-
-
-// const [user, dispatch] = useReducer(userReducer, [], getLocal)

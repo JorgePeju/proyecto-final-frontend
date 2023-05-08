@@ -2,7 +2,8 @@ import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 import { MapContainer, ZoomControl, Marker, Popup } from "react-leaflet";
 import { MapImage,  } from "../map";
-import { bounds, crs, maxZoom, getIcon } from '../../helpers'
+import { bounds, crs, maxZoom } from '../../config'
+import { getIcon } from '../../helpers'
 import { useFetchMarkers } from '../../hooks';
 import { AdminFormEntry } from './'
 import { useParams } from 'react-router-dom';

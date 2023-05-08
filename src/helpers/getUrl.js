@@ -10,9 +10,9 @@ export const getUrl = (entry, id) => {
    let url = ''
 
    if (entry === 'search') {
-
+     
       url = `${import.meta.env.VITE_URL_BASE_API}/entries/?search=${id}`
-
+      return url
    } else if (!id) {
 
       url = `${import.meta.env.VITE_URL_BASE_API}/${entry}`
@@ -23,7 +23,5 @@ export const getUrl = (entry, id) => {
       url = `${import.meta.env.VITE_URL_BASE_API}/${entry}/${id}`
       return url
    }
-
-
 
 }

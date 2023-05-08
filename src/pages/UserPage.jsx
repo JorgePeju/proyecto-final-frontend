@@ -32,7 +32,7 @@ export const UserPage = () => {
         <NavBarUser/>
 
         <Routes>
-        <Route path='/profile' element={<ProfilePanel/>} />
+        <Route path='/profile' element={<ProfilePanel refreshMarkers={refreshMarkers}/>} />
         <Route path='/entries' element={<Entry markerMongo={filteredMarkers} isLoading={isLoading} refreshMarkers={refreshMarkers} />} />
         <Route path='/entries/:id' element={<DetailView markerMongo={markers} refreshMarkers={refreshMarkers}/>} />
         

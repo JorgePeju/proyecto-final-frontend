@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MapContainerComp } from '../components/MapContainerComp';
 import { UserPanel, FilterPanel } from '../components/user/';
-
+import { FilterProvider } from '../context'
 
 export const HomePage = () => {
 
@@ -11,10 +11,11 @@ export const HomePage = () => {
 
   return (
     <>
-
-      <FilterPanel leftPanel={leftPanel} setLeftPanel={setLeftPanel} />
-      <UserPanel rightPanel={rightPanel} setRightPanel={setRightPanel} />
-      <MapContainerComp />
+      <FilterProvider>
+        <FilterPanel leftPanel={leftPanel} setLeftPanel={setLeftPanel} />
+        <UserPanel rightPanel={rightPanel} setRightPanel={setRightPanel} />
+        <MapContainerComp />
+      </FilterProvider>
 
     </>
   );

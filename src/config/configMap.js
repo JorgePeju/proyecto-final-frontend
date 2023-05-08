@@ -29,3 +29,9 @@ export const zoom =0;
  * @type {number}
  */
 export const maxZoom = 4;
+
+/**
+ * @type {Array<number>}
+ */
+export const topLeftCorner = {lat: 320, lng: 13};
+export const bottomRightCorner = {lat: 10, lng: 378};

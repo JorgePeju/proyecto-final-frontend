@@ -7,7 +7,7 @@ export const Register = ({ handleToggle }) => {
     return (
         <>
             <div className="w-full h-full flex items-center justify-end">
-                <div className="bg-backgroundZelda w-80 max-w-md h-full px-6 py-8">
+                <div className="bg-backgroundZelda w-full max-w-md h-full px-6 py-8">
                     <h1 className="text-zyellow font-bold leading-tight mb-4">Regístrate</h1>
 
                     <form className="space-y-4" onSubmit={handleSubmit}>
@@ -31,7 +31,7 @@ export const Register = ({ handleToggle }) => {
                         <p className="mt-8 text-red-600">
                             {error}
                         </p>}
-                        <button type="submit" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-2">Regístrate</button>
+                        <button type="submit" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-zbrown text-white font-semibold rounded-lg px-4 py-2">Regístrate</button>
                     </form>
 
 
@@ -45,7 +45,7 @@ export const Register = ({ handleToggle }) => {
                     </button>
                     <div className='text-right'>
                     <p className="mt-8 text-zyellow">¿Ya tienes cuenta?</p>
-                        <button onClick={handleToggle} className="text-zyellow hover:text-zlightblue font-semibold">Entra aquí con tu cuenta</button>
+                        <button onClick={handleToggle} className="text-zyellow hover:text-white font-semibold">Entra aquí con tu cuenta</button>
                     </div>
 
                 </div>

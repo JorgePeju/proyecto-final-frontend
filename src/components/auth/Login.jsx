@@ -7,8 +7,8 @@ export const Login = ({ handleToggle }) => {
 
 
     return (
-        <div className="w-80 flex items-center justify-end">
-            <div className="bg-backgroundZelda w-full max-w-md h-full px-6 py-8">
+        <div className="w-full flex items-center">
+            <div className="bg-backgroundZelda w-full max-w-md h-screen px-6 py-8">
                 <h1 className="text-zyellow font-bold leading-tight mb-4">Entra con tu cuenta</h1>
 
                 <form className="space-y-4" onSubmit={handleSubmit}>
@@ -25,13 +25,13 @@ export const Login = ({ handleToggle }) => {
                     </div>
 
                     <div >
-                        <a href="#" className="text-xs font-semibold text-zyellow hover:text-blue-700 focus:text-blue-700">¿Olvidaste la contraseña?</a>
+                        <a href="#" className="text-xs font-semibold text-zyellow hover:text-zbrown focus:text-zbrown">¿Olvidaste la contraseña?</a>
                     </div>
                     {error &&
                         <p className="mt-8 text-red-600">
                             {error}
                         </p>}
-                    <button type="submit" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-2">Log In</button>
+                    <button type="submit" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-zbrown text-white font-semibold rounded-lg px-4 py-2">Log In</button>
                 </form>
 
                 <button type="button" className="w-full block bg-zyellow hover:bg-zbgcosa focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-zbrown mt-6">
@@ -44,7 +44,7 @@ export const Login = ({ handleToggle }) => {
                 </button>
                 <div className='text-right'>
                     <p className="mt-8 text-zyellow">¿Aún no tienes una cuenta? </p>
-                    <button onClick={handleToggle} className="text-zyellow hover:text-zlightblue font-semibold ">Crea tu cuenta aquí</button>
+                    <button onClick={handleToggle} className="text-zyellow hover:text-white font-semibold ">Crea tu cuenta aquí</button>
                 </div>
 
             </div>
