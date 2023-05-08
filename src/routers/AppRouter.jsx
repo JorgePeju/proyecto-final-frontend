@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { HomePage } from '../pages'
-import { ErrorProvider, MarkerProvider, UserContext } from '../context'
+import { MarkerProvider, UserContext } from '../context'
 import { AdminRouters } from './AdminRouters'
 import { getLocal } from '../helpers'
-import { ProtectedRoute } from '../components/auth'
+import { ProtectedRoute, ProtectedRouteUser } from '../components/auth'
 import { UserRouters } from './UserRouters'
 
 export const AppRouter = () => {
@@ -29,22 +29,29 @@ export const AppRouter = () => {
     return (
 
         <>
-            <ErrorProvider>
-                <MarkerProvider>
-                    <Routes>
 
-                        <Route path='/*' element={<HomePage />} />
-                        <Route path='/user/*' element={<UserRouters />} />
-                        <Route path='/admin/*' element={
+            <MarkerProvider>
+                <Routes>
 
-                            <ProtectedRoute>
-                                <AdminRouters />
-                            </ProtectedRoute>
-                        } />
+                    <Route path='/*' element={<HomePage />} />
 
-                    </Routes>
-                </MarkerProvider>
-            </ErrorProvider>
+
+                    <Route path='/user/*' element={
+                        <ProtectedRouteUser>
+                            <UserRouters />
+                        </ProtectedRouteUser>
+                    } />
+
+
+                    <Route path='/admin/*' element={
+                        <ProtectedRoute>
+                            <AdminRouters />
+                        </ProtectedRoute>
+                    } />
+
+                </Routes>
+            </MarkerProvider>
+
         </>
 
     )

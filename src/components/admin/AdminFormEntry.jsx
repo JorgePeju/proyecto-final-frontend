@@ -1,11 +1,11 @@
-import { useContext } from 'react';
 import { useFormAdmin } from '../../hooks'
-import {ErrorContetx} from '../../context'
+
 
 export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
 
-  const { handleChange, handleSubmit } = useFormAdmin(id, refreshMarkers)
-  const {error} = useContext(ErrorContetx);
+  const { handleChange, handleSubmit, error } = useFormAdmin(id, refreshMarkers)
+ 
+
 
   const findError = (fieldName) => {
     const fieldError = error?.find(err => err.path === fieldName);
@@ -17,11 +17,12 @@ export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
       <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
+        
             <p className="text-sm font-medium text-gray-700 my-2">
-              Usuario:
+              Email: {markers[0].userEmail}
             </p>
             <p className="text-sm font-medium text-gray-700 my-2">
-              Rol:
+              Rol: {markers[0].userRole}
             </p>
           </div>
           <div>

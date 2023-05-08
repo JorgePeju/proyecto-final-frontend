@@ -9,6 +9,7 @@ import { consultation } from '../api/fetch';
 export const getMarker = async (url, id) => {
    
     const request = await consultation(url, id);
+   
     if (!Array.isArray(request.data)) {
         request.data = [request.data];
       }
@@ -25,7 +26,7 @@ export const getMarker = async (url, id) => {
         userId: item.user._id,
         userRole: item.user.role,
         userEmail: item.user.email,
-        userUsername: item.user.email,
+        userUsername: item.user.username,
         userDate: item.user.date
         
     }));

@@ -22,6 +22,7 @@ module.exports = {
         'zbgcosa':'#403333',
         'zbgray':'#261D1D',
         'zbgrey':'#260B10',
+        'zbgTAP' :'#D0BDA3'
       }
     },
   },

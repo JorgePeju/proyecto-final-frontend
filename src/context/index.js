@@ -2,5 +2,4 @@ export * from './MarkerContext'
 export * from './MarkerProvider'
 export * from './UserContext'
 export * from './UserProvider'
-export * from './ErrorContext'
-export * from './ErrorProvider'
+

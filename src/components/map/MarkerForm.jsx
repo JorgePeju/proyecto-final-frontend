@@ -1,10 +1,12 @@
 import { useContext } from 'react';
-import { ErrorContetx, MarkerContext } from '../../context';
+import { MarkerContext } from '../../context';
+import { useFormModal } from '../../hooks';
 
-export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal }) => {
+export const MarkerForm = ({ showModal, handleChange, handleSubmit, closeModal, error }) => {
 
   const { setMarker } = useContext(MarkerContext);
-  const {error} = useContext(ErrorContetx);
+ 
+
 
   const handleCloseModal = () => {
     closeModal();

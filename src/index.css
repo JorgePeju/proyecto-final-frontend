@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import url('https://fonts.cdnfonts.com/css/the-wild-breath-of-zelda'); */
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* font-family: 'The Wild Breath of Zelda', sans-serif; */
+
 }
 
 .leaflet-container {

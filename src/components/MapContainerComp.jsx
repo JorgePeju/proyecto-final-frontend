@@ -17,7 +17,7 @@ export const MapContainerComp = () => {
   const { marker } = useContext(MarkerContext);
   const [addMarker] = useMarker(user?._id);
   const {markers,isLoading, refreshMarkers} = useFetchMarkers('entries');
-  const { showModal, handleChange, handleSubmit, openModal, closeModal } = useFormModal(refreshMarkers);
+  const { showModal, handleChange, handleSubmit, openModal, closeModal, error } = useFormModal(refreshMarkers);
 
   const handleCoordinatesChange = (coordinates) => {
     if (!user?._id || showModal === true) return
@@ -40,7 +40,7 @@ export const MapContainerComp = () => {
     <MapContainer crs={crs} center={center} zoom={zoom} maxZoom={maxZoom} minZoom={0} doubleClickZoom={false} zoomControl={false} attributionControl={false}>
     <MapImage bounds={bounds} onCoordinatesChange={handleCoordinatesChange} />
       <Markers markerMongo={markers} markerData={marker} isLoading={isLoading} />
-      <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} />
+      <MarkerForm showModal={showModal} handleChange={handleChange} handleSubmit={handleSubmit} closeModal={closeModal} error={error} />
       <ZoomControl position="bottomright" zoomInTitle="Aumentar" zoomOutTitle="Alejar"/>
     </MapContainer>
    

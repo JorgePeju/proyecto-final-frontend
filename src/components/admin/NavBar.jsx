@@ -1,38 +1,40 @@
 import { NavLink } from 'react-router-dom';
-import {useLogout} from '../../hooks'
+import { useLogout } from '../../hooks'
 
 export const NavBar = () => {
 
+  const { handleLogout } = useLogout()
 
-  const {handleLogout}= useLogout()
   return (
+
     <>
-      <nav className="bg-gray-100 p-4 px-8 shadow-md">
+      <nav className="bg-zbgbrown p-4 px-8 shadow-md">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <ul className="flex space-x-4">
 
               <li>
-                <NavLink to="/" className="text-gray-700 font-medium hover:text-blue-500">
+                <NavLink to="/" className="text-zbgbrown font-medium hover:white">
                   Zona usuario </NavLink>
               </li>
-
+              
               <li>
-                <NavLink to="/admin/entries" className="text-gray-700 font-medium hover:text-blue-500"
+                <NavLink to="/user/" className="text-zyellow font-medium hover:text-white"
                 >
                   Gestionar Marcadores </NavLink>
               </li>
 
               <li>
-                <NavLink to="/admin/users" className="text-gray-700 font-medium hover:text-blue-500"
+                <NavLink to="/user/entries" className="text-zyellow font-medium hover:text-white"
                 >
-                  Gestionar Usuarios </NavLink>
+                  Gestionar Marcadores </NavLink>
               </li>
-
+            
             </ul>
+
             <div className="">
 
-            <button onClick={handleLogout} className="text-gray-700 font-medium hover:text-blue-500"> Logout </button>
+              <button onClick={handleLogout} className="text-zyellow font-medium hover:text-white"> Logout </button>
             </div>
           </div>
         </div>

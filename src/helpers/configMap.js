@@ -16,13 +16,13 @@ export const crs = L.CRS.Simple;
  * Centro inicial del mapa.
  * @type {Array<number>}
  */
-export const center = [150, 225];
+export const center = [165, 190];
 
 /**
  * Nivel de zoom inicial del mapa.
  * @type {number}
  */
-export const zoom = 0;
+export const zoom =0;
 
 /**
  * Nivel máximo de zoom del mapa.

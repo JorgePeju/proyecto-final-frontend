@@ -1,4 +1,5 @@
-import { ProfilePanel } from "../components/user"
+
+import { UserPage } from "../pages"
 
 
 export const UserRouters = () => {
@@ -8,7 +9,7 @@ export const UserRouters = () => {
 
     <>
     
-    <ProfilePanel/>
+    <UserPage/>
     
     </>
   )

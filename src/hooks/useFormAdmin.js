@@ -1,13 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { getUrl } from '../helpers'
 import { useNavigate } from 'react-router-dom'
-import { ErrorContetx } from '../context'
 import { consultation } from "../api/fetch";
 
 export const useFormAdmin = (id, refreshMarkers) => {
   
     const [formulario, setFormulario] = useState('');
-    const { setError } = useContext(ErrorContetx)
+    const [error, setError] = useState()
     const navigateTo = useNavigate()
 
     const handleChange = ({ target }) => {
@@ -44,7 +43,7 @@ export const useFormAdmin = (id, refreshMarkers) => {
       
         if (request.ok === true) {
             refreshMarkers()
-            navigateTo('/admin/entries')
+            navigateTo(-1)
 
         } else {
             
@@ -55,6 +54,7 @@ export const useFormAdmin = (id, refreshMarkers) => {
     return {
 
         handleChange,
-        handleSubmit
+        handleSubmit,
+        error
     }
 }

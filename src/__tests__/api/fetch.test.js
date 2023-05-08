@@ -24,7 +24,7 @@ describe('consultation', () => {
     expect(request).toHaveProperty('ok');
   });
 
-  test('Se espera un mensaje y un ok editar entradas por ID', async () => {
+  test('Se espera un mensaje y un error editar entradas por ID', async () => {
 
     const url = 'http://localhost:3000/api/v1/entries';
     const body = { key: 'valueToUpdate' };

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import {useDeleteEntry} from '../../hooks'
 
-export const Users = ({markerMongo, isLoading, refreshUsers}) => {
+export const Users = ({markerMongo, refreshUsers}) => {
 
   const navigateTo = useNavigate()
   

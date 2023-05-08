@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { consultation } from '../api/fetch';
-import { MarkerContext, ErrorContetx } from '../context'
+import { MarkerContext } from '../context'
 import { getUrl } from '../helpers'
 
 /**
@@ -12,9 +12,10 @@ import { getUrl } from '../helpers'
 export const useFormModal = (refreshMarkers) => {
 
     const [showModal, setShowModal] = useState(false);
+    const [error, setError] = useState()
     const [formulario, setFormulario] = useState({title: '', description: ''});
     const { marker, setMarker } = useContext(MarkerContext);
-    const { setError } = useContext(ErrorContetx)
+   
 
     const handleChange = ({ target }) => {
 
@@ -77,6 +78,7 @@ export const useFormModal = (refreshMarkers) => {
         handleSubmit,
         openModal,
         closeModal,
-        setShowModal
+        setShowModal,
+        error
     };
 };

@@ -12,7 +12,7 @@ export const useLogout = () => {
     const handleLogout = async () => {
 
         const url = getUrl('auth', 'logout');
-        console.log(url)
+     
         const response = await consultation(url);
 
         if (response.ok) {
