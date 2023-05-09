@@ -1,3 +1,6 @@
+/**
+ * @type {object}
+ */
 export const firebaseConfig = {
 
     apiKey: import.meta.env.VITE_API_KEY_FIREBASE,
