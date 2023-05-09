@@ -86,6 +86,13 @@ export const useForm = (estadoInicial) => {
         }
     }
 
+
+    const handleGoogle = () => {
+
+
+        
+    }
+
     const handleChange = ({ target }) => {
 
         const { name, value } = target
