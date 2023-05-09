@@ -22,7 +22,7 @@ export const center = [165, 190];
  * Nivel de zoom inicial del mapa.
  * @type {number}
  */
-export const zoom =0;
+export const zoom =1;
 
 /**
  * Nivel máximo de zoom del mapa.
