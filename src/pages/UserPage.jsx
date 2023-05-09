@@ -21,7 +21,7 @@ export const UserPage = () => {
   return (
 
     <>
-        <header className="bg-zbgbrown p-6 shadow-md">
+        <header className="bg-backgroundZelda p-6 shadow-md">
         <div className="container mx-auto">
           <h1 className="text-2xl text-zyellow font-semibold">
             Panel de Usuario
@@ -30,14 +30,14 @@ export const UserPage = () => {
       </header>
 
         <NavBarUser/>
-
+      <main>
         <Routes>
         <Route path='/profile' element={<ProfilePanel refreshMarkers={refreshMarkers}/>} />
         <Route path='/entries' element={<Entry markerMongo={filteredMarkers} isLoading={isLoading} refreshMarkers={refreshMarkers} />} />
         <Route path='/entries/:id' element={<DetailView markerMongo={markers} refreshMarkers={refreshMarkers}/>} />
         
       </Routes>
-    
+    </main>
     </>
 
   )

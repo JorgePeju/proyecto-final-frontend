@@ -8,7 +8,7 @@ export const Markers = ({ markerMongo, markerData }) => {
  
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
-
+ 
   const [filteredMarkers, setFilteredMarkers] = useState([]);
 
   const filterMarkers = () => {

@@ -10,7 +10,7 @@ module.exports = {
         'boton': '28rem', /* Reemplazar con el valor en rem que deseas */
       },
       backgroundImage: {
-        'backgroundZelda': "url('src/assets/background.jpg')",
+        'backgroundZelda': "url('https://www.zelda.com/breath-of-the-wild/assets/img/patterns/black.jpg')",
       },
       colors: {
         'zdarkblue':'#272F59',

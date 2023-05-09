@@ -21,7 +21,7 @@ export const MapContainerComp = () => {
   const { showModal, handleChange, handleSubmit, openModal, closeModal, error } = useFormModal(refreshMarkers);
 
   const filteredMarkers = filter ? filter : markers;
-  console.log(filteredMarkers)
+
   const handleCoordinatesChange = (coordinates) => {
 
     if (!user?._id || showModal === true) {

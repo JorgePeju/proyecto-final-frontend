@@ -8,7 +8,7 @@ export const NavBar = () => {
   return (
 
     <>
-      <nav className="bg-zbgbrown p-4 px-8 shadow-md">
+      <nav className="bg-backgroundZelda p-4 px-8 shadow-md">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <ul className="flex space-x-4">

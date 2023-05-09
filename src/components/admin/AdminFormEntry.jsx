@@ -51,7 +51,7 @@ export const AdminFormEntry = ({ markers, id, refreshMarkers }) => {
             {user.role !== 'user' &&
             <div>
               <label className="block text-zyellow text-bold">Estado Actual: {markers[0].iconType === "true" ? "Activad" : "Inactivo"}</label>
-              <select id="status" name="status" value={markers[0].iconType} onChange={handleChange} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm">
+              <select id="status" name="status" onChange={handleChange} className="w-full px-3 py-2 rounded-lg bg-gray-200 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none text-sm">
               <option value="true">Activado</option>
               <option value="false">Inactivo</option>
             </select>
