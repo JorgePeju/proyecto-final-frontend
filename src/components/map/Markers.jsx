@@ -1,7 +1,7 @@
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { UserContext } from '../../context/UserContext'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getIcon } from '../../helpers'
 
 export const Markers = ({ markerMongo, markerData }) => {
@@ -9,15 +9,25 @@ export const Markers = ({ markerMongo, markerData }) => {
   const { user } = useContext(UserContext);
   const isAdmin = user?.role === 'admin' || user?.role === 'modertor';
 
-  const filteredMarkers = markerMongo.filter((marker) => {
-    if (isAdmin) {
-      return true;
-    } else if (user?._id === marker.userId) {
-      return true;
-    } else {
-      return marker.status === true;
-    }
-  });
+  const [filteredMarkers, setFilteredMarkers] = useState([]);
+
+  const filterMarkers = () => {
+    const newFilteredMarkers = markerMongo.filter((marker) => {
+      if (isAdmin) {
+        return true;
+      } else if (user?._id === marker.userId) {
+        return true;
+      } else {
+        return marker.status === true;
+      }
+    });
+
+    setFilteredMarkers(newFilteredMarkers);
+  };
+
+  useEffect(() => {
+    filterMarkers();
+  }, [markerMongo, isAdmin, user]);
 
   return (
 
